@@ -13,6 +13,7 @@ public class Detalle_orden
     public double Precio { get; set; }
     public int Cantidad { get; set; }
     public int Id_orden { get; set; }
+
     public Detalle_orden()
     {
        
