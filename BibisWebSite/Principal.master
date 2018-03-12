@@ -6,15 +6,60 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+        <link href="Styles/estilos.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
+         <div id="encabezado">
+            <div id="contenidoEncabezado">
+                <div id="menus">
+                    <ul id="menu">
+                        <li><img src="imagenes/logotipo.png" alt="logotipo"/></li>
+                        <li><a href="Default.aspx">Inicio</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Marcas</a></li>
+                        <li><a href="#">Informacion</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li id="liLogin"><a href="Default.aspx">Login</a></li>
+                        <li id="liRegistro"><a href="#">Registrate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="cuerpo">
+            <div id="menuEspecifico">
+                 <asp:ContentPlaceHolder id="contenidoMenuEspecifico" runat="server">
+
+                 </asp:ContentPlaceHolder>
+            </div>
+            <div id="contenido">
+                <div id="contenidoTitulo">
+                    <h3>
+                        <asp:ContentPlaceHolder id="tituloContenido" runat="server">
+
+                        </asp:ContentPlaceHolder>
+                    </h3>
+                </div>
+                <asp:ContentPlaceHolder id="contenidoPrincipal" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="pie">
+                <div>
+                    <a href="#">Facebook</a>
+                </div>
+                <div>
+                    <a href="#">Twiter</a>
+                </div>
+                <div>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
     </div>
     </form>
 </body>

@@ -1,0 +1,144 @@
+﻿body {
+    font-family: Tahoma, Arial;
+    margin: 0;
+    padding:0;
+}
+#encabezado {
+    height: 110px;
+    background-color: #01075a;
+    color: white;
+    box-shadow: 0 0 10px #000;
+    border-bottom: 4px solid #53A6E8;
+}
+#contenidoEncabezado {
+    height: auto;
+}
+#logo {
+    float: left;
+    width: 20%;
+    margin-top: 8px;
+}
+#logo > img {
+        border-radius: 8px 8px 8px 8px;
+        height: 60px;
+        width: 100px;
+        margin-bottom: 10px;
+        margin-left: 80px;
+}
+#liLogin, #liRegistro {
+    float: right;
+}
+#menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 45px;
+    clear: both;
+    background: #d2d2d2;
+    background: -moz-linear-gradient(#fff,#d2d2d2);
+    background: -webkit-linear-gradient(#fff,#d2d2d2);
+    background: -o-linear-gradient(#fff,#d2d2d2);
+    background: linear-gradient(#fff,#d2d2d2);
+}
+#menu > li {
+    height: 100%;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0;
+}
+
+#menu > li > a {
+    color: #01079a;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 28px;
+    padding: 0 20px;
+    text-shadow: 1px 1px 1px #666;
+    text-decoration: none;
+}
+#menu > li:hover > a {
+    color: crimson;
+}
+#menu > li:hover {
+    background-color: #d2d2d2;
+}
+#cuerpo {
+    margin: 0;
+    background-color: #fff;
+    border-radius: 0px 0px 10px 10px;
+    overflow: auto;
+}
+
+#menuEspecifico {
+    background-color: #01075a;
+    float: left;
+    width: 15%;
+    min-height: 500px;
+}
+
+#menuEspecifico ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px auto;
+    width: 70%;
+}
+
+#menuEspecifico li {
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    border-left: 6px solid #53A6E8;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#menuEspecifico li a {
+    color: #268fe2;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+#menuEspecifico li:hover {
+    border-left: 6px solid crimson;
+}
+
+#menuEspecifico li:hover > a {
+    color: crimson;
+}
+
+#contenido {
+    float: left;
+    width: 85%;
+    min-height: 500px;
+    box-shadow: 0 0 5px #000 inset;
+}
+
+#contenidoTitulo {
+    border-radius: 0 010px 10px;
+    clear: both;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    border-bottom: 3px solid #d2d2d2;
+    min-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #666;
+}
+
+#pie {
+    border-radius: 0px 0px 10px 10px;
+    clear: both;
+    background: #d2d2d2;
+    background: -moz-linear-gradient(#fff,#d2d2d2);
+    background: -webkit-linear-gradient(#fff,#d2d2d2);
+    background: -o-linear-gradient(#fff,#d2d2d2);
+    background: linear-gradient(#fff,#d2d2d2);
+    color: #01079a;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 5px;
+}
