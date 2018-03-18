@@ -64,28 +64,29 @@ public class Conexion
 
     public int ejecutarSentencia(String sentencia, bool esInsert)
     {
-        try
-        {
-            if (Conectar())
-            {
+        //try
+        //{
+        //    if (Conectar())
+        //    {
+                Conectar();
                 MySqlCommand objComando = new MySqlCommand(sentencia, conexion);
                 objComando.ExecuteNonQuery();
                 return 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-        catch (Exception ex)
-        {
-            return 0;
-        }
-        finally
-        {
-            if (conexion != null)
-                conexion.Close();
-        }
+        //    }
+        //    else
+        //    {
+        //        return 0;
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    return 0;
+        //}
+        //finally
+        //{
+        //    if (conexion != null)
+        //        conexion.Close();
+        //}
     }
 
     public DataTable ejecutarConsulta(MySqlCommand com)

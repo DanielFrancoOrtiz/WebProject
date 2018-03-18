@@ -1,6 +1,14 @@
 ﻿<%@ Page Language="C#" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+    protected void btnAcceder_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta charset="utf-8" />
@@ -20,7 +28,7 @@
                 <br />
                 <br />
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <asp:Button ID="btnAcceder" runat="server" Text="Entrar" Width="128px" />
+                                    <asp:Button ID="btnAcceder" runat="server" Text="Entrar" Width="128px" OnClick="btnAcceder_Click" />
                 <br />
 
        
