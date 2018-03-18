@@ -14,6 +14,11 @@ Telefono	varchar(16) null,
 Direccion	text		not null,
 Pass		varchar(30) not null
 );
+create view empleadosv as 
+select Nombre, Apellidos, Puesto, Email, Telefono, Direccion from
+empleados;
+
+
 
 create table clientes(
 id				int 		primary key auto_increment,
@@ -84,11 +89,5 @@ cantidad		smallint(5)		not null,
 id_orden		int				not null,
 constraint	foreign key(id_orden)references	ordenes(id)
 );
-
-select * from proveedores;
-insert into proveedores values(null,'proveedor1','pro1@email.com','4434534352','pro1direccion','pro1city');
-
-select * from categorias;
-insert into categorias (nombre, descripcion)values('categoria1','desc cat 1');
 
 
