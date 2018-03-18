@@ -45,12 +45,12 @@ Ciudad				varchar(30)	not null
 
 create table productos(
 id				int 			primary key auto_increment,
-nombre			varchar(30) 	not null,
-modelo      	varchar(30) 	not null,
-cantidad		int not null,
-precio_compra	decimal(10,2) 	not null,
-precio_venta	decimal(10,2) 	not null,
-foto			text			not null,
+Nombre			varchar(30) 	not null,
+Modelo      	varchar(30) 	not null,
+Cantidad		int not null,
+Precio_compra	decimal(10,2) 	not null,
+Precio_venta	decimal(10,2) 	not null,
+Foto			text			not null,
 id_Proveedor	int 			null,
 id_Categoria	int				not null,
 constraint foreign key (id_Proveedor) references proveedores(id),
@@ -88,6 +88,7 @@ constraint	foreign key(id_orden)references	ordenes(id)
 select * from proveedores;
 insert into proveedores values(null,'proveedor1','pro1@email.com','4434534352','pro1direccion','pro1city');
 
-
+select * from categorias;
+insert into categorias (nombre, descripcion)values('categoria1','desc cat 1');
 
 
