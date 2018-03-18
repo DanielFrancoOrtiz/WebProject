@@ -12,8 +12,6 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Nombre: </span>
             </div>
-               <!-- <input id="txtNombre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-               --> 
            <asp:TextBox ID="txtNombre" CssClass="form-control"  runat="server"></asp:TextBox>
            </div>
         <div class="input-group mb-3">

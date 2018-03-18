@@ -12,43 +12,44 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="lblNombre">Nombre: </span>
             </div>
-                <input type="text" class="form-control" aria-label="Default" 
-                    aria-describedby="lblNombre">
-        </div>
+            <asp:TextBox  ID="txtNombre" CssClass="form-control"  runat="server"></asp:TextBox>
+
+    </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="lblEmail">Email: </span>
             </div>
-                <input type="email" class="form-control" aria-label="Default" 
-                    aria-describedby="lblEmail">
+            <asp:TextBox  ID="txtEmail" AutoCompleteType="Email" CssClass="form-control"  runat="server"></asp:TextBox>
+
         </div>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="lblTelefono">Telefono: </span>
             </div>
-                <input type="text" class="form-control" aria-label="Default" 
-                    aria-describedby="lblTelefono">
+            <asp:TextBox  ID="txtTelefono" CssClass="form-control"  runat="server"></asp:TextBox>
+
+
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="lblDireccion">Direccion: </span>
             </div>
-                <input type="text" class="form-control" aria-label="Default" 
-                    aria-describedby="lblDireccion">
+            <asp:TextBox  ID="txtDireccion" CssClass="form-control"  runat="server"></asp:TextBox>
+
         </div>   
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="lblCiudad">Diudad: </span>
+                <span class="input-group-text" id="lblCiudad">Ciudad: </span>
             </div>
-                <input type="text" class="form-control" aria-label="Default" 
-                    aria-describedby="lblCiudad">
+            <asp:TextBox  ID="txtCiudad" CssClass="form-control"  runat="server"></asp:TextBox>
+
         </div>   
 
 
 
 
-        <asp:Button ID="Button1" CssClass="btn btn-info col-sm-2" runat="server" Text="Aceptar" />
-        <asp:Button ID="Button2" CssClass="btn btn-danger col-sm-2" runat="server" Text="Cancelar" />
+        <asp:Button ID="Button1" CssClass="btn btn-info col-sm-2" runat="server" Text="Aceptar" OnClick="Button1_Click" />
+        <asp:Button ID="Button2" CssClass="btn btn-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button2_Click" />
 </asp:Content>
 

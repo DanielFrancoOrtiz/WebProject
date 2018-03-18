@@ -52,9 +52,9 @@
             <option></option>
         </select></p>
     <p>
-        <asp:Button ID="Button1" runat="server" Text="Registrar" Width="100px" />
+        <asp:Button ID="Button1" runat="server" Text="Registrar" Width="100px" OnClick="Button1_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button2" runat="server" Text="Cancelar" Width="100px" />
+        <asp:Button ID="Button2" runat="server" Text="Cancelar" Width="100px" OnClick="Button2_Click" />
     </p>
 </asp:Content>
 

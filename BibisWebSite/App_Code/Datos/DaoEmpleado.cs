@@ -160,6 +160,6 @@ public class DaoEmpleado : IDAO<Empleado>
     public DataTable LeerTodoss()
     {
         Conexion con = new Conexion();
-        return con.ejecutarConsulta("select * from empleados");
+        return con.ejecutarConsulta("select * from empleadosV");
     }
 }
