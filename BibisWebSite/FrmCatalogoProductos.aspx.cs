@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class FrmCatalogoMensajeria : System.Web.UI.Page
+public partial class FrmCatalogoProductos : System.Web.UI.Page
 {
-    DaoMensajeria dao = new DaoMensajeria();
+    DaoProducto dao = new DaoProducto();
     protected void Page_Load(object sender, EventArgs e)
     {
         GridView1.DataSource = dao.LeerTodoss();
@@ -16,6 +16,6 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("FrmRegistroMensajeria.aspx");
+        Response.Redirect("FrmRegistroProducto.aspx");
     }
 }

@@ -13,4 +13,9 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         GridView1.DataSource = dao.LeerTodoss();
         GridView1.DataBind();
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("FrmRegistroCategoria.aspx");
+    }
 }
