@@ -158,5 +158,9 @@ public class DaoOrden : IDAO<Orden>
         }
     }
 
-    
+    public DataTable LeerTodoss()
+    {
+        Conexion con = new Conexion();
+        return con.ejecutarConsulta("select * from ordenes");
+    }
 }

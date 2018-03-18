@@ -137,5 +137,9 @@ public class DaoCliente : IDAO<Cliente>
         }
     }
 
-    
+    public DataTable LeerTodoss()
+    {
+        Conexion con = new Conexion();
+        return con.ejecutarConsulta("select * from clientes");
+    }
 }

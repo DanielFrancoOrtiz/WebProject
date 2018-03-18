@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 
 /// <summary>
@@ -11,4 +12,5 @@ interface IDAO<T>
     int Eliminar(int id);
     T Buscar(int id);
     List<T> ConsultarTodos();
+    DataTable LeerTodoss();
 }

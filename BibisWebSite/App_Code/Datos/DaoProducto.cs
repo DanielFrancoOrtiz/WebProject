@@ -161,5 +161,9 @@ public class DaoProducto : IDAO<Producto>
         }
     }
 
-    
+    public DataTable LeerTodoss()
+    {
+        Conexion con = new Conexion();
+        return con.ejecutarConsulta("select * from productos");
+    }
 }

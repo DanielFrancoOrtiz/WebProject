@@ -18,8 +18,8 @@ public class DaoProveedor : IDAO<Proveedor>
     {
         try
         {
-            String sentencia = String.Format("INSERT INTO proveedores (nombre_proveedor, " +
-                " email_proveedor, telefono_proveedor, direccion_proveedor, ciudad_proveedor) " +
+            String sentencia = String.Format("INSERT INTO proveedores (Nombre, " +
+                " Email, Telefono, Direccion, Ciudad) " +
                 "VALUES({0},{1},{2},{3},{4});",
                 obj.Nombre_proveedor,
                 obj.Email_proveedor,
@@ -46,9 +46,9 @@ public class DaoProveedor : IDAO<Proveedor>
     {
         try
         {
-            String sentencia = String.Format("UPDATE proveedores SET nombre_proveedor = {0}," +
-                " email_proveedor = {1}, telefono_proveedor ={2}, direccion_proveedor = {3}," +
-                " ciudad_proveedor = {4} WHERE id = {5}",
+            String sentencia = String.Format("UPDATE proveedores SET Nombre = {0}," +
+                " Email = {1}, Telefono ={2}, Direccion = {3}," +
+                " Ciudad = {4} WHERE id = {5}",
                 obj.Nombre_proveedor,
                 obj.Email_proveedor,
                 obj.Telefono_proveedor,
@@ -82,9 +82,9 @@ public class DaoProveedor : IDAO<Proveedor>
             {
                 DataRow fila = dtCategorias.Rows[0];
                 obj = new Proveedor(int.Parse(fila["id"].ToString()),
-                    fila["nombre_proveedor"].ToString(), fila["email_proveedor"].ToString(),
-                    fila["telefono_proveedor"].ToString(), fila["direccion_proveedor"].ToString(),
-                    fila["ciudad_proveedor"].ToString());
+                    fila["Nombre"].ToString(), fila["Email"].ToString(),
+                    fila["Telefono"].ToString(), fila["Direccion"].ToString(),
+                    fila["Ciudad"].ToString());
             }
             return obj;
         }
@@ -112,9 +112,9 @@ public class DaoProveedor : IDAO<Proveedor>
             foreach (DataRow fila in dt.Rows)
             {
                 obj = new Proveedor(int.Parse(fila["id"].ToString()),
-                     fila["nombre_proveedor"].ToString(), fila["email_proveedor"].ToString(),
-                     fila["telefono_proveedor"].ToString(), fila["direccion_proveedor"].ToString(),
-                     fila["ciudad_proveedor"].ToString());
+                     fila["Nombre"].ToString(), fila["Email"].ToString(),
+                     fila["Telefono"].ToString(), fila["Direccion"].ToString(),
+                     fila["Ciudad"].ToString());
                 lista.Add(obj);
             }
             return lista;
@@ -153,5 +153,9 @@ public class DaoProveedor : IDAO<Proveedor>
         }
     }
 
-    
+    public DataTable LeerTodoss()
+    {
+        Conexion con = new Conexion();
+        return con.ejecutarConsulta("select * from proveedores");
+    }
 }

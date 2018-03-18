@@ -17,7 +17,7 @@ public class DaoMensajeria : IDAO<Mensajeria>
     {
         try
         {
-            String sentencia = String.Format("INSERT INTO mensajeria (nombre_mensajeria, email_mensajeria, telefono_mensajeria) " +
+            String sentencia = String.Format("INSERT INTO mensajeria (Nombre, Email, Telefono) " +
                 "VALUES({0},{1},{2});",
                 obj.Nombre_mensajeria,
                 obj.Email_mensajeria,
@@ -41,8 +41,8 @@ public class DaoMensajeria : IDAO<Mensajeria>
     {
         try
         {
-            String sentencia = String.Format("UPDATE mensajeria SET nombre_mensajeria = {0}," +
-                " email_mensajeria = {1}, telefono_mensajeria ={2} WHERE id = {3}",
+            String sentencia = String.Format("UPDATE mensajeria SET Nombre = {0}," +
+                " Email = {1}, Telefono ={2} WHERE id = {3}",
                 obj.Nombre_mensajeria,
                 obj.Email_mensajeria,
                 obj.Telefono_mensajeria,
@@ -73,8 +73,8 @@ public class DaoMensajeria : IDAO<Mensajeria>
             if (dtCategorias != null && dtCategorias.Rows.Count > 0)
             {
                 DataRow fila = dtCategorias.Rows[0];
-                obj = new Mensajeria(int.Parse(fila["id"].ToString()), fila["nombre_mensajeria"].ToString(),
-                    fila["email_mensajeria"].ToString(), fila["telefono_mensajeria"].ToString());
+                obj = new Mensajeria(int.Parse(fila["id"].ToString()), fila["Nombre"].ToString(),
+                    fila["Email"].ToString(), fila["Telefono"].ToString());
             }
             return obj;
         }
@@ -101,8 +101,8 @@ public class DaoMensajeria : IDAO<Mensajeria>
             Mensajeria obj = null;
             foreach (DataRow fila in dt.Rows)
             {
-                obj = new Mensajeria(int.Parse(fila["id"].ToString()), fila["nombre_mensajeria"].ToString(),
-                    fila["email_mensajeria"].ToString(), fila["telefono_mensajeria"].ToString());
+                obj = new Mensajeria(int.Parse(fila["id"].ToString()), fila["Nombre"].ToString(),
+                    fila["Email"].ToString(), fila["Telefono"].ToString());
                 lista.Add(obj);
             }
             return lista;
@@ -141,5 +141,9 @@ public class DaoMensajeria : IDAO<Mensajeria>
         }
     }
 
-    
+    public DataTable LeerTodoss()
+    {
+        Conexion con = new Conexion();
+        return con.ejecutarConsulta("select * from mensajeria");
+    }
 }

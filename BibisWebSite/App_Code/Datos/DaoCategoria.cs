@@ -138,4 +138,9 @@ public class DaoCategoria : IDAO<Categoria>
         }
     }
 
+    public DataTable LeerTodoss()
+    {
+        Conexion con = new Conexion();
+        return con.ejecutarConsulta("select * from categorias");
+    }
 }

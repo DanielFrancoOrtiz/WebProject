@@ -142,5 +142,9 @@ public class DaoDetalle_orden : IDAO<Detalle_orden>
         }
     }
 
-    
+    public DataTable LeerTodoss()
+    {
+        Conexion con = new Conexion();
+        return con.ejecutarConsulta("select * from detalles_ordenes");
+    }
 }

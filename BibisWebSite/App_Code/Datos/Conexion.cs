@@ -14,7 +14,7 @@ public class Conexion
         string usuario = "root";
         string contrasenia = "root";
         string puerto = "3306";
-        string database = "db_bibis";
+        string database = "bd_bibis";
 
         String parametrosConexion = "Server=" + servidor + ";Uid=" + 
             usuario + ";Pwd=" + contrasenia + ";Database="+database+";Port=" + puerto + ";";
@@ -33,30 +33,31 @@ public class Conexion
 
     public DataTable ejecutarConsulta(String sentencia)
     {
-        try
-        {
-            if (Conectar())
-            {
+        //try
+        //{
+        //    if (Conectar())
+        //    {
+        Conectar();
                 MySqlDataAdapter objAdapter =
                     new MySqlDataAdapter(sentencia, conexion);
                 DataTable resultado = new DataTable();
                 objAdapter.Fill(resultado);
                 return resultado;
-            }
-            else
-            {
-                return null;
-            }
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }
-        finally
-        {
-            if (conexion != null)
-                conexion.Close();
-        }
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    return null;
+        //}
+        //finally
+        //{
+        //    if (conexion != null)
+        //        conexion.Close();
+        //}
 
     }
 
