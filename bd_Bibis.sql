@@ -27,7 +27,7 @@ Codigo_postal	char(5)		not null
 
 );
 
-create table catergorias(
+create table categorias(
 id			int 		primary key auto_increment,
 Nombre		varchar(30)	not null,
 Descripcion	text null
@@ -54,7 +54,7 @@ foto			text			not null,
 id_Proveedor	int 			null,
 id_Categoria	int				not null,
 constraint foreign key (id_Proveedor) references proveedores(id),
-constraint foreign key (id_Categoria) references catergorias(id) 
+constraint foreign key (id_Categoria) references categorias(id) 
 );
 
 create table mensajeria(
