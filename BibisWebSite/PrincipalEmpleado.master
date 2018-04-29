@@ -13,11 +13,12 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <div id="encabezado" class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,.7);">
+        <div id="encabezado" class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(255, 98, 160);">
             <div id="contenidoEncabezado" class="row col-sm-12">
                 <div id="menus" class="row justify-content-center col-sm-12">
                     <div class="row col-sm-10"> 
                         <ul class="navbar-nav">
+                            <li class="nav-item"><div id="logo"><img src="./imgs/LogoBBPN3.png"/></div></li>
                             <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmCatalogoProductos.aspx">Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmCatalogoCategorias.aspx">Categorias</a></li>
@@ -37,7 +38,7 @@
             </div>
         </div>
         <div id="cuerpo" class="row col-sm-12" >
-            <div id="menuEspecifico" class="container col-sm-2" style="background-color:blue; height:550px;">
+            <div id="menuEspecifico" class="container col-sm-2" style="background-color: rgb(240, 222, 247); height:550px;">
                  <asp:ContentPlaceHolder id="contenidoMenuEspecifico" runat="server">
 
                  </asp:ContentPlaceHolder>

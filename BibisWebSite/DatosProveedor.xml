@@ -1,1 +1,17 @@
-<?xml version="1.0"?><Proveedores><Proveedor><Nombre>Andres</Nombre><Email>anja@hotmail.com</Email><Telefono>23</Telefono><Direccion>hidalgo</Direccion><Cuidad>Uriangato</Cuidad></Proveedor></Proveedores>
+<?xml version="1.0"?>
+<Proveedores>
+  <Proveedor>
+    <Nombre>Andres</Nombre>
+    <Email>anja@hotmail.com</Email>
+    <Telefono>23</Telefono>
+    <Direccion>hidalgo</Direccion>
+    <Cuidad>Uriangato</Cuidad>
+  </Proveedor>
+  <DatosProveedor>
+    <Nombre>profe</Nombre>
+    <Email>ptoge@hotmail.com</Email>
+    <Telefono>4564</Telefono>
+    <Direccion>itsur</Direccion>
+    <Cuidad>uriangato</Cuidad>
+  </DatosProveedor>
+</Proveedores>
