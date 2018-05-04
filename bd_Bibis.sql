@@ -14,6 +14,7 @@ Telefono	varchar(16) null,
 Direccion	text		not null,
 Pass		varchar(30) not null
 );
+
 create view empleadosv as 
 select Nombre, Apellidos, Puesto, Email, Telefono, Direccion from
 empleados;
