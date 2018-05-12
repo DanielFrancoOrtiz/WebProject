@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./Styles/estilos.css" >
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -19,10 +18,10 @@
                 <div id="menus" class="row justify-content-center col-sm-12">
                     <div class="row col-sm-10"> 
                         <ul class="navbar-nav">
-                            <li class="nav-item"><div id="logo" style="height:50px;"><img src="../imgs/LogoBB2.png"/></div></li>
+                            <li class="nav-item"><div id="logo"><img src="./imgs/LogoBBPN3.png" style="height:50px;" /></div></li>
                             <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="FrmVistaProductos.aspx">Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Marcas</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmInformacion.aspx">Informacion</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
@@ -38,7 +37,7 @@
             </div>
         </div>
         <div id="cuerpo" class="row col-sm-12" >
-            <div id="menuEspecifico" class="container col-sm-2" style="heightbackground-color: rgb(255, 98, 160); height:550px;">
+            <div id="menuEspecifico" class="container col-sm-2" style="background-color: rgb(240, 222, 247); height:550px;">
                  <asp:ContentPlaceHolder id="contenidoMenuEspecifico" runat="server">
 
                  </asp:ContentPlaceHolder>
@@ -57,15 +56,7 @@
             </div>
             </div>
             <div id="pie" class="text-center col-sm-12" style="background-color: rgba(0,0,0,.7);">
-                <div>
-                    <a href="#">Facebook</a>
-                </div>
-                <div>
-                    <a href="#">Twiter</a>
-                </div>
-                <div>
-                    <a href="#">Instagram</a>
-                </div>
+               
             </div>
       
 
