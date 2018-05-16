@@ -8,12 +8,10 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
-    <script type="text/javascript">
-        
 
-    </script>
-   <div class="row">
-		<div class="col-md-3 col-sm-4">
+   <div id="divRow" runat="server" class="row">
+		
+       <div class="col-md-3 col-sm-4">
 			<div class="">
 				<asp:Image ID="Image1" runat="server" Height="200px" ImageUrl="~/imgs/Logo.jpg" Width="150px" />
 			</div>
