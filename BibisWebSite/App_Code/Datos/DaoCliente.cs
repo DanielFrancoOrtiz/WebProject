@@ -14,10 +14,10 @@ public class DaoCliente : IDAO<Cliente>
     {
         //try
         //{
-            String sentencia = String.Format("INSERT INTO categorias (Nombre, Apellidos, Telefono," +
+            String sentencia = String.Format("INSERT INTO clientes (Nombre, Apellidos, email, Telefono," +
                 " Direccion, Ciudad, Codigo_postal) " +
-                "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');",
-                obj.Nombre, obj.Apellidos, obj.Telefono, obj.Direccion, obj.Ciudad, obj.Codigo_postal);
+                "VALUES('{0}', '{1}',{2}, '{3}', '{4}', '{5}', '{6}');",
+                obj.Nombre, obj.Apellidos, obj.Email, obj.Telefono, obj.Direccion, obj.Ciudad, obj.Codigo_postal);
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, true);
         //}
@@ -39,8 +39,9 @@ public class DaoCliente : IDAO<Cliente>
         //try
         //{
             String sentencia = String.Format("UPDATE clientes SET Nombre = '{0}'," +
-                " Apellidos = '{1}', Telefono = '{2}', Direccion= '{3}', Ciudad = '{4}', Codigo_postal = '{5}' WHERE id = {6}",
-                obj.Nombre,obj.Apellidos,obj.Telefono,obj.Direccion,obj.Ciudad,obj.Codigo_postal,obj.Id);
+                " Apellidos = '{1}', Email = {2}, Telefono = '{3}', Direccion= '{4}', Ciudad = '{5}'," +
+                " Codigo_postal = '{6}' WHERE id = {7}",
+                obj.Nombre,obj.Apellidos,obj.Email,obj.Telefono,obj.Direccion,obj.Ciudad,obj.Codigo_postal,obj.Id);
             Conexion con = new Conexion();
             return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
         //}
@@ -68,7 +69,7 @@ public class DaoCliente : IDAO<Cliente>
             {
                 DataRow fila = dtCategorias.Rows[0];
                 obj = new Cliente(int.Parse(fila["id"].ToString()), fila["Nombre"].ToString(),
-                    fila["Apellidos"].ToString(), fila["Telefono"].ToString(), fila["Direccion"].ToString(),
+                    fila["Apellidos"].ToString(),fila["Email"].ToString(), fila["Telefono"].ToString(), fila["Direccion"].ToString(),
                     fila["Ciudad"].ToString(), fila["Codigo_postal"].ToString());
             }
             return obj;
@@ -97,7 +98,7 @@ public class DaoCliente : IDAO<Cliente>
             foreach (DataRow fila in dt.Rows)
             {
                 obj = new Cliente(int.Parse(fila["id"].ToString()), fila["Nombre"].ToString(),
-                    fila["Apellidos"].ToString(), fila["Telefono"].ToString(), fila["Direccion"].ToString(),
+                    fila["Apellidos"].ToString(),fila["Email"].ToString(), fila["Telefono"].ToString(), fila["Direccion"].ToString(),
                     fila["Ciudad"].ToString(), fila["Codigo_postal"].ToString());
                 lista.Add(obj);
             }
