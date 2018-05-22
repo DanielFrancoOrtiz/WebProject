@@ -17,6 +17,18 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
         {
             for (int i = 0; i < lista.Count; i++)
             {
+                Button btn1 = new Button();
+                Button btn2 = new Button();
+                btn1.Text = "Upd";
+                btn2.Text = "Del";
+                btn1.CssClass = "btn btn-warning col-sm-6";
+                btn2.CssClass = "btn btn-danger col-sm-6";
+                
+
+                TableCell c0 = new TableCell();
+                c0.Controls.Add(btn1);
+                c0.Controls.Add(btn2);
+
                 TableCell c1 = new TableCell();
                 c1.Text = Convert.ToString(lista[i].Id);
                 TableCell c2 = new TableCell();
@@ -27,6 +39,7 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
                 c4.Text = lista[i].Telefono_mensajeria;
 
                 TableRow tr = new TableRow();
+                tr.Cells.Add(c0);
                 tr.Cells.Add(c1);
                 tr.Cells.Add(c2);
                 tr.Cells.Add(c3);

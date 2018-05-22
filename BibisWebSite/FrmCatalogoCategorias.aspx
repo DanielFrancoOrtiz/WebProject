@@ -10,16 +10,42 @@
     Catálogo de Categorias
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
-    <asp:Table ID="Table1"
+    
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Nombre: </span>
+            </div>
+           <asp:TextBox ID="txtNombre" CssClass="form-control"  runat="server"></asp:TextBox>
+           </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Descripcion: </span>
+            </div>
+                <asp:TextBox ID="txtDescripcion" CssClass="form-control"  runat="server"></asp:TextBox>
+        </div>
+
+        <asp:Button ID="Button2" CssClass="btn btn-info col-sm-2" runat="server" Text="Aceptar" OnClick="Button2_Click" />
+        <asp:Button ID="Button3" CssClass="btn btn-danger col-sm-2" runat="server" Text="Cancelar" />
+             
+            
+       <asp:Table ID="Table1"
         CssClass="table table-bordered table-hover table-responsive-sm table-responsive-md text-center"
-        runat="server" Height="54px" Width="432px">
+        runat="server" >
         <asp:TableHeaderRow>
             <asp:TableHeaderCell Scope="Column" runat="server">ID</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Nombre</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Descripcion</asp:TableHeaderCell>
         </asp:TableHeaderRow>
-        
-
     </asp:Table>
+
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <br />
+    
 </asp:Content>
 

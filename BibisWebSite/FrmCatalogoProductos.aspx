@@ -11,7 +11,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
     <asp:Table ID="Table1"
         CssClass="table table-bordered table-hover table-responsive-sm table-responsive-md text-center"
-        runat="server" Height="54px" Width="432px">
+        runat="server">
         <asp:TableHeaderRow>
             <asp:TableHeaderCell Scope="Column" runat="server">ID</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Nombre</asp:TableHeaderCell>
