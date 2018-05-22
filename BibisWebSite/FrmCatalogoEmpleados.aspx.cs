@@ -4,16 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 
 public partial class FrmCatalogoEmpleados : System.Web.UI.Page
 {
     DaoEmpleado dao = new DaoEmpleado();
     protected void Page_Load(object sender, EventArgs e)
     {
-        //GridView1.DataSource = dao.LeerTodoss();
-        //GridView1.DataBind();
+        WebService1.WebService1SoapClient servicio = new WebService1.WebService1SoapClient();
+        List<Empleado> lista = JsonConvert.DeserializeObject<List<Empleado>>(servicio.ConsultarTodos());
 
-        List<Empleado> lista = dao.ConsultarTodos();
         if (lista != null)
         {
             for (int i = 0; i < lista.Count; i++)
