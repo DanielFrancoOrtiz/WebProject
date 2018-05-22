@@ -46,7 +46,6 @@ namespace ServicioEmpleados
         public int Eliminar(int id) {
             return d.Eliminar(id);
         }
-        
 
 
     }
