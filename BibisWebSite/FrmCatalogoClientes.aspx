@@ -13,6 +13,7 @@
         CssClass="table table-bordered table-hover table-responsive-sm table-responsive-md text-center"
         runat="server">
         <asp:TableHeaderRow>
+            <asp:TableHeaderCell Scope="Column" runat="server">Administrar</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">ID</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Nombre</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Apellidos</asp:TableHeaderCell>

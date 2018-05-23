@@ -43,7 +43,7 @@ public class DaoCliente : IDAO<Cliente>
                 " Codigo_postal = '{6}' WHERE id = {7}",
                 obj.Nombre,obj.Apellidos,obj.Email,obj.Telefono,obj.Direccion,obj.Ciudad,obj.Codigo_postal,obj.Id);
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{
@@ -123,7 +123,7 @@ public class DaoCliente : IDAO<Cliente>
         //{
             String sentencia = "DELETE FROM clientes WHERE id = " + id;
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{

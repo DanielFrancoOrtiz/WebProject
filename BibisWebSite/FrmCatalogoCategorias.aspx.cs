@@ -19,7 +19,12 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
     }
     public void llenarTable() {
         List<Categoria> lista = dao.ConsultarTodos();
+
         Table1.Rows.Clear();
+
+        TableHeaderCell h0 = new TableHeaderCell();
+        h0.Scope = TableHeaderScope.Column;
+        h0.Text = "Administrar";
         TableHeaderCell h1 = new TableHeaderCell();
         h1.Scope = TableHeaderScope.Column;
         h1.Text = "ID";
@@ -30,6 +35,7 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         h3.Scope = TableHeaderScope.Column;
         h3.Text = "Descripcion";
         TableHeaderRow hr = new TableHeaderRow();
+        hr.Cells.Add(h0);
         hr.Cells.Add(h1);
         hr.Cells.Add(h2);
         hr.Cells.Add(h3);
@@ -39,6 +45,20 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         {
             for (int i = 0; i < lista.Count; i++)
             {
+                Button btn1 = new Button();
+                Button btn2 = new Button();
+                btn1.Text = "Upd";
+                btn2.Text = "Del";
+                btn1.CssClass = "btn btn-warning col-sm-6";
+                btn2.CssClass = "btn btn-danger col-sm-6";
+                btn1.Click += new EventHandler(this.ActionUpd);
+                btn2.Click += new EventHandler(this.ActionDel);
+
+                TableCell c0 = new TableCell();
+                c0.Controls.Add(btn1);
+                c0.Controls.Add(btn2);
+
+
                 TableCell c1 = new TableCell();
                 c1.Text = Convert.ToString(lista[i].Id);
                 TableCell c2 = new TableCell();
@@ -46,12 +66,22 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
                 TableCell c3 = new TableCell();
                 c3.Text = lista[i].Descripcion;
                 TableRow tr = new TableRow();
+                tr.Cells.Add(c0);
                 tr.Cells.Add(c1);
                 tr.Cells.Add(c2);
                 tr.Cells.Add(c3);
                 Table1.Rows.Add(tr);
             }
         }
+    }
+    protected void ActionUpd(object sender, EventArgs e)
+    {
+        Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+    }
+    protected void ActionDel(object sender, EventArgs e)
+    {
+        dao.Eliminar(Convert.ToInt32(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text));
+        llenarTable();
     }
 
 

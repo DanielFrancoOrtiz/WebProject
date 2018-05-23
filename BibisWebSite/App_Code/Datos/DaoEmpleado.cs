@@ -60,11 +60,42 @@ public class DaoEmpleado : IDAO<Empleado>
                 obj.Direccion,
                 obj.Pass, obj.Id);
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{
         //    return 0;
+        //}
+        //finally
+        //{
+        //    if (Conexion.conexion != null)
+        //    {
+        //        Conexion.conexion.Close();
+        //    }
+        //}
+    }
+
+    public Empleado Logear(string user, string pass)
+    {
+        Empleado obj = null;
+        //try
+        //{
+        Conexion con = new Conexion();
+        DataTable dtCategorias = con.ejecutarConsulta("SELECT * FROM empleados WHERE Usuario = '" + user
+            + "' AND Pass  = '"+ pass+"'");
+        if (dtCategorias != null && dtCategorias.Rows.Count > 0)
+        {
+            DataRow fila = dtCategorias.Rows[0];
+            obj = new Empleado(int.Parse(fila["id"].ToString()), fila["Nombre"].ToString(),
+                fila["Apellidos"].ToString(), fila["Usuario"].ToString(), fila["Puesto"].ToString(),
+                fila["Email"].ToString(), fila["Telefono"].ToString(), fila["Direccion"].ToString(),
+                fila["Pass"].ToString());
+        }
+        return obj;
+        //}
+        //catch (Exception ex)
+        //{
+        //    return obj;
         //}
         //finally
         //{
@@ -142,7 +173,7 @@ public class DaoEmpleado : IDAO<Empleado>
         //{
             String sentencia = "DELETE FROM empleados WHERE id = " + id;
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{

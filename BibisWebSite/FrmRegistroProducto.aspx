@@ -16,45 +16,89 @@
     Registrar Producto
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
-    <p>
-        Nombre:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server" Width="170px"></asp:TextBox>
-    </p>
-    <p>
-        Modelo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox2" runat="server" Width="170px"></asp:TextBox>
-    </p>
-    <p>
-        Cantidad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox3" runat="server" Width="70px"></asp:TextBox>
-    </p>
-    <p>
-        Precio de compra:&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox4" runat="server" Width="70px"></asp:TextBox>
-    </p>
-    <p>
-        Precio de Venta:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox5" runat="server" Width="70px"></asp:TextBox>
-    </p>
-    <p>
-        Producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </p>
-    <div style="width: 170px; height: 92px; margin-left: 157px; margin-top: 0px">
+    <div class="row">
+
+    
+    <div class ="container row col-sm-9">
+    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblNombre">Nombre: </span>
+        </div>
+        <asp:textbox id="txtNombre" cssclass="form-control" runat="server"></asp:textbox>
+
     </div>
-    <p>
-        Proveedor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <select id="Select2" name="D2">
-            <option></option>
-        </select></p>
-    <p>
-        Categoria:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <select id="Select1" name="D1">
-            <option></option>
-        </select></p>
-    <p>
-        <asp:Button ID="Button1" runat="server" Text="Registrar" Width="100px" OnClick="Button1_Click" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button2" runat="server" Text="Cancelar" Width="100px" OnClick="Button2_Click" />
-    </p>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblModelo">Modelo: </span>
+        </div>
+        <asp:textbox id="txtModelo" autocompletetype="Email" cssclass="form-control" runat="server"></asp:textbox>
+
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblDantidad">Cantidad: </span>
+        </div>
+        <asp:textbox id="txtCantidad" cssclass="form-control" runat="server"></asp:textbox>
+
+
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblPrecioC">Precio Compra: </span>
+        </div>
+        <asp:textbox id="txtPrecioC" cssclass="form-control" runat="server"></asp:textbox>
+
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblPRecioV">Precio Venta: </span>
+        </div>
+        <asp:textbox id="txtPrecioV" cssclass="form-control" runat="server"></asp:textbox>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblProveedor">Proveedor: </span>
+        </div>
+        <asp:dropdownlist ID="cmbProveedor" cssclass="form-control" runat="server">
+            <asp:ListItem CssClass="dropdown-item">Opcion 1</asp:ListItem>
+            <asp:ListItem CssClass="dropdown-item">Opcion 2</asp:ListItem>
+            <asp:ListItem CssClass="dropdown-item">Opcion 3</asp:ListItem>
+        </asp:dropdownlist>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblCategoria">Categoria: </span>
+        </div>
+        <asp:dropdownlist ID="cmbCategoria" CssClass="form-control" runat="server">
+            <asp:ListItem CssClass="dropdown-item">Opcion 1</asp:ListItem>
+            <asp:ListItem CssClass="dropdown-item">Opcion 2</asp:ListItem>
+            <asp:ListItem CssClass="dropdown-item">Opcion 3</asp:ListItem>
+        </asp:dropdownlist>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblDescripbion">Descipcion: </span>
+        </div>
+        <textarea id="txtDescripcion" runat="server" class="form-control" aria-label="With textarea"></textarea>
+    </div>
+
+    <asp:button id="Button1" cssclass="btn btn-info col-sm-3" runat="server" text="Aceptar" />
+    <asp:button id="Button2" cssclass="btn btn-danger col-sm-3" runat="server" text="Cancelar"  />
+    </div>
+    <div class="container row col-sm-3">
+        <div class="card" style="width: 18rem;">
+            <asp:image id="Image1" cssclass="card-img-bottom"
+                runat="server" height="200px" imageurl="~/imgs/Logo.jpg" />
+            <div class="card-body">
+                <h5 class="card-title">Imagen</h5>               
+                <a href="#" class="btn btn-primary">Cargar Imagen</a>
+            </div>
+        </div>
+    </div>
+    </div>
 </asp:Content>
 

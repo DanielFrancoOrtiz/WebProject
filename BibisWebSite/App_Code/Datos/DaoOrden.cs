@@ -60,7 +60,7 @@ public class DaoOrden : IDAO<Orden>
                 obj.Id_mensajeria,
                 obj.Id);
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{
@@ -143,7 +143,7 @@ public class DaoOrden : IDAO<Orden>
         //{
             String sentencia = "DELETE FROM ordenes WHERE id = " + id;
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{

@@ -14,12 +14,13 @@ public class Producto
     public string Foto { get; set; }
     public int Id_proveedor { get; set; }
     public int Id_categoria { get; set; }
+    public string Descripcion { get; set; }
     public Producto()
     {
         
     }
     public Producto(int id, string nombre, string modelo, int cantidad, double precio_compra,
-       double precio_venta, string foto, int id_proveedor, int id_categoria )
+       double precio_venta, string foto, int id_proveedor, int id_categoria, string descripcion )
     {
         Id = id;
         Nombre = nombre;
@@ -30,7 +31,7 @@ public class Producto
         Foto = foto;
         Id_proveedor = id_proveedor;
         Id_categoria = id_categoria;
-
+        Descripcion = descripcion;
 
     }
 }

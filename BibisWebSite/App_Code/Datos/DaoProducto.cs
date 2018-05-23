@@ -18,8 +18,8 @@ public class DaoProducto : IDAO<Producto>
         //try
         //{
             String sentencia = String.Format("INSERT INTO productos (Nombre, Modelo, Cantidad," +
-                " Precio_compra, Precio_venta, Foto, id_proveedor, id_categoria) " +
-                "VALUES('{0}','{1}',{2},{3},{4},'{5}',{6},{7});",
+                " Precio_compra, Precio_venta, Foto, id_proveedor, id_categoria, descripcion) " +
+                "VALUES('{0}','{1}',{2},{3},{4},'{5}',{6},{7},{8});",
                 obj.Nombre,
                 obj.Modelo,
                 obj.Cantidad,
@@ -27,7 +27,8 @@ public class DaoProducto : IDAO<Producto>
                 obj.Precio_venta,
                 obj.Foto,
                 obj.Id_proveedor,
-                obj.Id_categoria);
+                obj.Id_categoria,
+                obj.Descripcion);
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, true);
         //}
@@ -50,7 +51,7 @@ public class DaoProducto : IDAO<Producto>
         //{
             String sentencia = String.Format("UPDATE productos SET Nombre = '{0}'," +
                 " Modelo = '{1}', Cantidad ={2}, Precio_compra = {3}, Precio_venta = {4}," +
-                " Foto = '{5}', id_proveedor = {6}, id_categoria = {7} WHERE id = {8}",
+                " Foto = '{5}', id_proveedor = {6}, id_categoria = {7}, descripcion = {8} WHERE id = {9}",
                 obj.Nombre,
                 obj.Modelo,
                 obj.Cantidad,
@@ -59,9 +60,10 @@ public class DaoProducto : IDAO<Producto>
                 obj.Foto,
                 obj.Id_proveedor,
                 obj.Id_categoria,
+                obj.Descripcion,
                 obj.Id);
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{
@@ -91,7 +93,7 @@ public class DaoProducto : IDAO<Producto>
                     fila["Modelo"].ToString(), int.Parse(fila["Cantidad"].ToString()),
                     double.Parse(fila["Precio_compra"].ToString()),double.Parse(fila["Precio_venta"].ToString()),
                     fila["Foto"].ToString(),int.Parse(fila["id_proveedor"].ToString()),
-                    int.Parse(fila["id_categoria"].ToString()));
+                    int.Parse(fila["id_categoria"].ToString()),fila["descripcion"].ToString());
             }
             return obj;
         //}
@@ -122,7 +124,7 @@ public class DaoProducto : IDAO<Producto>
                     fila["Modelo"].ToString(), int.Parse(fila["Cantidad"].ToString()),
                     double.Parse(fila["Precio_compra"].ToString()), double.Parse(fila["Precio_venta"].ToString()),
                     fila["Foto"].ToString(), int.Parse(fila["id_proveedor"].ToString()),
-                    int.Parse(fila["id_categoria"].ToString()));
+                    int.Parse(fila["id_categoria"].ToString()),fila["descripcion"].ToString());
                 lista.Add(obj);
             }
             return lista;
@@ -146,7 +148,7 @@ public class DaoProducto : IDAO<Producto>
         //{
             String sentencia = "DELETE FROM productos WHERE id = " + id;
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{

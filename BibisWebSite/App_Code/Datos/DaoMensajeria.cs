@@ -48,7 +48,7 @@ public class DaoMensajeria : IDAO<Mensajeria>
                 obj.Telefono_mensajeria,
                 obj.Id);
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{
@@ -126,7 +126,7 @@ public class DaoMensajeria : IDAO<Mensajeria>
         //{
             String sentencia = "DELETE FROM mensajeria WHERE id = " + id;
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
         //}
         //catch (Exception ex)
         //{

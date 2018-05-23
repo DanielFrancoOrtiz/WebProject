@@ -17,9 +17,9 @@
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
             <form action="#">
-                <input type="text" placeholder="Usuario" required>
-                <input type="password" placeholder="Contraseña" required>
-                <input type="submit" value="Iniciar Sesión">
+                <input runat="server" type="text" placeholder="Usuario" required>
+                <input runat="server" type="password" placeholder="Contraseña" required>
+                <input runat="server" type="submit" value="Iniciar Sesión">
             </form>
         </div>
 

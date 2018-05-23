@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PrincipalEmpleado.master" AutoEventWireup="true" CodeFile="FrmCatalogoCategorias.aspx.cs" Inherits="FrmCatalogoCategorias" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <meta charset="utf-8" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
             <asp:Button ID="Button1" CssClass="btn btn-info col-sm-12" runat="server" Text="Agregar" OnClick="Button1_Click" />
-
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
     Catálogo de Categorias
@@ -33,19 +35,18 @@
              
             
        <asp:Table ID="Table1"
-        CssClass="table table-bordered table-hover table-responsive-sm table-responsive-md text-center"
-        runat="server" >
+        CssClass="table table-bordered table-hover table-responsive-sm table-responsive-md text-center display"
+        runat="server" EnableTheming="True" >
         <asp:TableHeaderRow>
+            <asp:TableHeaderCell Scope="Column" runat="server">Administrar</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">ID</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Nombre</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Descripcion</asp:TableHeaderCell>
         </asp:TableHeaderRow>
     </asp:Table>
 
-
         </ContentTemplate>
     </asp:UpdatePanel>
-    <br />
     
 </asp:Content>
 
