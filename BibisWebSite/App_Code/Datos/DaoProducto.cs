@@ -19,7 +19,7 @@ public class DaoProducto : IDAO<Producto>
         //{
             String sentencia = String.Format("INSERT INTO productos (Nombre, Modelo, Cantidad," +
                 " Precio_compra, Precio_venta, Foto, id_proveedor, id_categoria, descripcion) " +
-                "VALUES('{0}','{1}',{2},{3},{4},'{5}',{6},{7},{8});",
+                "VALUES('{0}','{1}',{2},{3},{4},'{5}',{6},{7},'{8}');",
                 obj.Nombre,
                 obj.Modelo,
                 obj.Cantidad,
@@ -51,7 +51,7 @@ public class DaoProducto : IDAO<Producto>
         //{
             String sentencia = String.Format("UPDATE productos SET Nombre = '{0}'," +
                 " Modelo = '{1}', Cantidad ={2}, Precio_compra = {3}, Precio_venta = {4}," +
-                " Foto = '{5}', id_proveedor = {6}, id_categoria = {7}, descripcion = {8} WHERE id = {9}",
+                " Foto = '{5}', id_proveedor = {6}, id_categoria = {7}, descripcion = '{8}' WHERE id = {9}",
                 obj.Nombre,
                 obj.Modelo,
                 obj.Cantidad,

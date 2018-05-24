@@ -86,19 +86,9 @@
         <textarea id="txtDescripcion" runat="server" class="form-control" aria-label="With textarea"></textarea>
     </div>
 
-    <asp:button id="Button1" cssclass="btn btn-info col-sm-3" runat="server" text="Aceptar" />
-    <asp:button id="Button2" cssclass="btn btn-danger col-sm-3" runat="server" text="Cancelar"  />
+    <asp:button ID="btnAceptar" cssclass="btn btn-info col-sm-3" runat="server" text="Aceptar" OnClick="btnAceptar_Click" />
+    <asp:button ID="btnCancelar" cssclass="btn btn-danger col-sm-3" runat="server" text="Cancelar" OnClick="btnCancelar_Click" />
     </div>
-    <div class="container row col-sm-3">
-        <div class="card" style="width: 18rem;">
-            <asp:image id="Image1" cssclass="card-img-bottom"
-                runat="server" height="200px" imageurl="~/imgs/Logo.jpg" />
-            <div class="card-body">
-                <h5 class="card-title">Imagen</h5>               
-                <a href="#" class="btn btn-primary">Cargar Imagen</a>
-            </div>
-        </div>
-    </div>
-    </div>
+   
 </asp:Content>
 
