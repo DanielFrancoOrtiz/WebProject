@@ -2,7 +2,6 @@ create database bd_Bibis;
 use bd_Bibis;
 
 
-
 create table clientes(
 id				int 		primary key auto_increment,
 Nombre			varchar(30)	not null,
@@ -37,7 +36,7 @@ Modelo      	varchar(30) 	not null,
 Cantidad		int not null,
 Precio_compra	decimal(10,2) 	not null,
 Precio_venta	decimal(10,2) 	not null,
-Foto			text			not null,
+Foto			text			null,
 id_Proveedor	int 			null,
 id_Categoria	int				not null,
 descripcion		text			null,
