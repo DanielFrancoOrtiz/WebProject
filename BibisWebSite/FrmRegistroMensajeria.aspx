@@ -26,7 +26,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="lblTelefono">Telefono: </span>
             </div>
-            <asp:TextBox ID="txtTelefono" CssClass="form-control"  runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtTelefono"  CssClass="form-control"  runat="server"></asp:TextBox>
         </div>   
 
         <asp:Button ID="Button1" CssClass="btn btn-info col-sm-2" runat="server" Text="Aceptar" OnClick="Button1_Click" />

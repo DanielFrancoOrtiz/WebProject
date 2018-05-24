@@ -14,16 +14,24 @@ public partial class FrmRegistoCategoria : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        DaoCategoria dao = new DaoCategoria();
-        Categoria c = new Categoria();
-        c.Nombre = txtNombre.Text.ToString();
-        c.Descripcion = txtDescripcion.Text.ToString();
-        if (dao.Insertar(c) == 1)
+        if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
         {
-            Response.Write("Agrego");
+            Response.Write("Hay Uno o mas Campos Vacios!");
         }
-        else {
-            Response.Write("Error");
+        else
+        {
+            DaoCategoria dao = new DaoCategoria();
+            Categoria c = new Categoria();
+            c.Nombre = txtNombre.Text.ToString();
+            c.Descripcion = txtDescripcion.Text.ToString();
+            if (dao.Insertar(c) == 1)
+            {
+                Response.Write("Se registro la categoria exitosamente");
+            }
+            else
+            {
+                Response.Write("No se pudo llevar a cabo con el registro");
+            }
         }
     }
 

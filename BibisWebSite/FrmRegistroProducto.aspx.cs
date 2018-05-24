@@ -46,18 +46,32 @@ public partial class FrmProducto : System.Web.UI.Page
 
     protected void btnAceptar_Click(object sender, EventArgs e)
     {
-        Producto p = new Producto();
-        p.Nombre = txtNombre.Text;
-        p.Modelo = txtModelo.Text;
-        p.Cantidad = Convert.ToInt32(txtCantidad.Text);
-        p.Precio_compra = Convert.ToDouble(txtPrecioC.Text);
-        p.Precio_venta = Convert.ToDouble(txtPrecioV.Text);
-        p.Id_proveedor = listaProveedor[cmbProveedor.SelectedIndex].Id;
-        p.Id_categoria = listaCategoria[cmbCategoria.SelectedIndex].Id;
-        p.Descripcion = txtDescripcion.InnerText;
-        daoProducto.Insertar(p);
-        Response.Redirect("FrmCatalogoProductos.aspx");
+        if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtModelo.Text)
+            || string.IsNullOrWhiteSpace(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtPrecioC.Text)
+            || string.IsNullOrWhiteSpace(txtPrecioV.Text)
+            )
+        {
+            Response.Write("Hay Uno o mas Campos Vacios!");
+        }
+        else
+        {
+
+            Producto p = new Producto();
+            p.Nombre = txtNombre.Text;
+            p.Modelo = txtModelo.Text;
+            p.Cantidad = Convert.ToInt32(txtCantidad.Text);
+            p.Precio_compra = Convert.ToDouble(txtPrecioC.Text);
+            p.Precio_venta = Convert.ToDouble(txtPrecioV.Text);
+            p.Id_proveedor = listaProveedor[cmbProveedor.SelectedIndex].Id;
+            p.Id_categoria = listaCategoria[cmbCategoria.SelectedIndex].Id;
+            p.Descripcion = txtDescripcion.InnerText;
+            daoProducto.Insertar(p);
+            Response.Redirect("FrmCatalogoProductos.aspx");
+        }
     }
+       
+
+    
 
     protected void btnCancelar_Click(object sender, EventArgs e)
     {

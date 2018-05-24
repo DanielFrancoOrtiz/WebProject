@@ -6,9 +6,14 @@
     <style type="text/css">
         .mySlides {
     display:none;
+    
     }
+        .w3-content w3-section {
+            margin-right:190px;
+        }
+
         body {
-         background-color:mistyrose;
+         background-color:white;
         }
 
 </style>
@@ -19,11 +24,11 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
     <div class="w3-content w3-section" style="max-width:300px">
-  <img class="mySlides" src="../imgs/1.jpg" style="width:100%">
-  <img class="mySlides" src="../imgs/2.jpg" style="width:100%">
-  <img class="mySlides" src="../imgs/3.jpg" style="width:100%">
-<img class="mySlides" src="../imgs/4.jpg" style="width:100%">
-  <img class="mySlides" src="../imgs/5.jpg" style="width:100%">
+  <img class="mySlides" src="../imgs/grand1.png" style="width:200%">
+  <img class="mySlides" src="../imgs/grand2.jpg" style="width:160%">
+  <img class="mySlides" src="../imgs/grand3.jpg" style="width:160%">
+<img class="mySlides" src="../imgs/grand4.jpeg" style="width:200%">
+  <img class="mySlides" src="../imgs/grand5.jpg" style="width:200%">
 </div>
     <script type="text/javascript">
       var myIndex = 0;
