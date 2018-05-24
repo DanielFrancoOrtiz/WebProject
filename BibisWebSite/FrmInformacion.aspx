@@ -2,23 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
-    .auto-style1 {
-        width: 100%;
-        border: 4px solid #66FFFF;
-        background-color: #00FFFF;
-    }
+ body {
+    background: url(../imgs/th2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Roboto;
+   
+}
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
    
-    <table class="auto-style1">
-    <tr>
-        <br />
-        <br />
-          <br />
-        <br />
+    <div>
+   
         <td>
             <h1 class="entry-title">Acerca de Bibi&#39;s, empresa dedicada a la distribución de perfumes en México.</h1>
             <p class="entry-title">
@@ -26,8 +24,7 @@
             <p class="entry-title">
                 Perfumistas altamente reconocidos son los encargados de desarrollar los perfumes de actualidad y las nuevas creaciones, las cuales nosotros nos encargamos de seleccionar y brindarle a usted.</p>
         </td>
-    </tr>
-</table>
+    </div>
    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">

@@ -11,7 +11,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
     <div class="contenedor-form">
         <div class="toggle">
-            <span>Crear Cuenta</span>
+            
         </div>
 
         <div class="formulario">
@@ -23,20 +23,7 @@
             </form>
         </div>
 
-        <div class="formulario">
-            <h2>Crea tu Cuenta</h2>
-            <form action="#">
-                <input type="text" placeholder="Usuario" required>
-
-                <input type="password" placeholder="Contraseña" required>
-
-                <input type="email" placeholder="Correo Electronico" required>
-
-                <input type="text" placeholder="Teléfono" required>
-
-                <input type="submit" value="Registrarse">
-            </form>
-        </div>
+       
         <div class="reset-password">
             <a href="#">Olvide mi Contraseña?</a>
         </div>
