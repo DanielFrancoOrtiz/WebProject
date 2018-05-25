@@ -32,7 +32,7 @@
             <asp:TextBox ID="txtTelefono"  CssClass="form-control"  runat="server"></asp:TextBox>
         </div>   
     
-        <asp:Button ID="Button1" CssClass="btn btn-outline-info col-sm-2" runat="server" Text="Aceptar" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" CssClass="btn btn-outline-info col-sm-2" runat="server" Text="Agregar" OnClick="Button1_Click" />
         <asp:Button ID="Button2" CssClass="btn btn-outline-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button2_Click" />
 
 </asp:Content>

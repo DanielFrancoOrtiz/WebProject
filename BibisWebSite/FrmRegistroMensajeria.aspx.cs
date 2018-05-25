@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -32,39 +33,68 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
         }
         else
         {
-            Mensajeria m = new Mensajeria();
-            m.Nombre_mensajeria = txtNombre.Text.ToString();
-            m.Email_mensajeria = txtEmail.Text.ToString();
-            m.Telefono_mensajeria = txtTelefono.Text.ToString();
-            if (Button2.Text.ToString().Equals("Agregar"))
+            if (validar())
             {
-                if (dao.Insertar(m) == 1)
+                Mensajeria m = new Mensajeria();
+                m.Nombre_mensajeria = txtNombre.Text.ToString();
+                m.Email_mensajeria = txtEmail.Text.ToString();
+                m.Telefono_mensajeria = txtTelefono.Text.ToString();
+                if (Button1.Text.ToString().Equals("Agregar"))
                 {
-                    Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
+                    if (dao.Insertar(m) == 1)
+                    {
+                        Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
+                    }
                 }
                 else
                 {
-                    Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
-                }
-            }
-            else {
 
-                m.Id = Convert.ToInt32(Label2.Text);
-                if (dao.Actualizar(m) == 1)
-                {
-                    Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
+                    m.Id = Convert.ToInt32(Label2.Text);
+                    if (dao.Actualizar(m) == 1)
+                    {
+                        Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
+                    }
+                    Response.Redirect("FrmCatalogoMensajeria.aspx");
                 }
-                else
-                {
-                    Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
-                }
-                Response.Redirect("FrmCatalogoMensajeria.aspx");
             }
+            
         }
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
         Response.Redirect("FrmCatalogoMensajeria.aspx");
+    }
+
+    public Boolean validar() {
+        txtTelefono.BorderColor = System.Drawing.Color.Gray;
+        txtEmail.BorderColor = System.Drawing.Color.Gray;
+        txtNombre.BorderColor = System.Drawing.Color.Gray;
+        Boolean valid = true;
+        if (!Regex.IsMatch(txtNombre.Text, "[A-Z][a-z]+([ ](([A-Z][a-z]*)|([0-9]+)))*"))
+        {
+            valid = false;
+            txtNombre.BorderColor = System.Drawing.Color.Red;
+        }
+        if (!Regex.IsMatch(txtEmail.Text, "[A-Za-z]+@[a-z]+[.][a-z]+([.][a-z]+)?")) {
+            valid = false;
+            txtEmail.BorderColor = System.Drawing.Color.Red;
+        }
+        if (!Regex.IsMatch(txtTelefono.Text, "[0-9]+")
+            || txtTelefono.Text.Length > 13 || txtTelefono.Text.Length < 10
+            )
+        {
+            valid = false;
+            txtTelefono.BorderColor = System.Drawing.Color.Red;
+        }
+        return valid;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -64,39 +65,43 @@ public partial class FrmProducto : System.Web.UI.Page
         }
         else
         {
-
-            Producto p = new Producto();
-            p.Nombre = txtNombre.Text;
-            p.Modelo = txtModelo.Text;
-            p.Cantidad = Convert.ToInt32(txtCantidad.Text);
-            p.Precio_compra = Convert.ToDouble(txtPrecioC.Text);
-            p.Precio_venta = Convert.ToDouble(txtPrecioV.Text);
-            p.Id_proveedor = listaProveedor[cmbProveedor.SelectedIndex].Id;
-            p.Id_categoria = listaCategoria[cmbCategoria.SelectedIndex].Id;
-            p.Descripcion = txtDescripcion.InnerText;
-            if (btnAceptar.Text.ToString().Equals("Agregar"))
+            if (validar())
             {
-                if (daoProducto.Insertar(p) == 1)
+                Producto p = new Producto();
+                p.Nombre = txtNombre.Text;
+                p.Modelo = txtModelo.Text;
+                p.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                p.Precio_compra = Convert.ToDouble(txtPrecioC.Text);
+                p.Precio_venta = Convert.ToDouble(txtPrecioV.Text);
+                p.Id_proveedor = listaProveedor[cmbProveedor.SelectedIndex].Id;
+                p.Id_categoria = listaCategoria[cmbCategoria.SelectedIndex].Id;
+                p.Descripcion = txtDescripcion.InnerText;
+                if (btnAceptar.Text.ToString().Equals("Agregar"))
                 {
-                    
-                    Response.Write("<script>alert('Registro de producto exitoso!!!!')</script>");
+                    if (daoProducto.Insertar(p) == 1)
+                    {
+
+                        Response.Write("<script>alert('Registro de producto exitoso!!!!')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
+                    }
                 }
                 else
                 {
-                    Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
-                }
-            }
-            else {
-                p.Id = Convert.ToInt32(Label2.Text);
-                if (daoProducto.Actualizar(p) == 1)
-                {
-                    Response.Write("<script>alert('Actualizacion exitosa!!'></script>");
-                    Response.Redirect("FrmCatalogoProductos.aspx");
-                }
-                else {
+                    p.Id = Convert.ToInt32(Label2.Text);
+                    if (daoProducto.Actualizar(p) == 1)
+                    {
+                        Response.Write("<script>alert('Actualizacion exitosa!!'></script>");
+                        Response.Redirect("FrmCatalogoProductos.aspx");
+                    }
+                    else
+                    {
+
+                    }
 
                 }
-                
             }
             
         }
@@ -109,4 +114,42 @@ public partial class FrmProducto : System.Web.UI.Page
     {
         Response.Redirect("FrmCatalogoProductos.aspx");
     }
+    public Boolean validar()
+    {
+        Boolean valid = true;
+        txtNombre.BorderColor = System.Drawing.Color.Gray;
+        txtModelo.BorderColor = System.Drawing.Color.Gray;
+        txtCantidad.BorderColor = System.Drawing.Color.Gray;
+        txtPrecioC.BorderColor = System.Drawing.Color.Gray;
+        txtPrecioV.BorderColor = System.Drawing.Color.Gray;
+
+        if (!Regex.IsMatch(txtNombre.Text, "[A-Z][a-z]+([ ]?(([A-Z][a-z]*)|([0-9]+)))*"))
+        {
+            valid = false;
+            txtNombre.BorderColor = System.Drawing.Color.Red;
+        }
+        if (!Regex.IsMatch(txtModelo.Text, "[A-Z][a-z]+([ ]?(([A-Z][a-z]*)|([0-9]+)))*"))
+        {
+            valid = false;
+            txtModelo.BorderColor = System.Drawing.Color.Red;
+        }
+        if (!Regex.IsMatch(txtCantidad.Text, "[0-9]+"))
+        {
+            valid = false;
+            txtCantidad.BorderColor = System.Drawing.Color.Red;
+        }
+        if (!Regex.IsMatch(txtPrecioC.Text, "[0-9]+([.][0-9]+)?"))
+        {
+            valid = false;
+            txtPrecioC.BorderColor = System.Drawing.Color.Red;
+        }
+        if (!Regex.IsMatch(txtPrecioV.Text, "[0-9]+([.][0-9]+)?"))
+        {
+            valid = false;
+            txtPrecioV.BorderColor = System.Drawing.Color.Red;
+        }
+
+        return valid;
+    }
+
 }

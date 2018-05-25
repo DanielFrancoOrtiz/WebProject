@@ -12,7 +12,7 @@ public class Conexion
     {
         string servidor = "localhost";
         string usuario = "root";
-        string contrasenia = "12345";
+        string contrasenia = "root";
         string puerto = "3306";
         string database = "bd_bibis";
 
