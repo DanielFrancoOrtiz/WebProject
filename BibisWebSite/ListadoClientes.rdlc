@@ -619,7 +619,6 @@
         </TablixRowHierarchy>
         <DataSetName>ClientesDataSet1</DataSetName>
         <Top>0.17639cm</Top>
-        <Left>0cm</Left>
         <Height>1.2cm</Height>
         <Width>20cm</Width>
         <Style>
@@ -635,7 +634,7 @@
   <Width>7.94346in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>9.2075cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -689,7 +688,6 @@
           </Paragraphs>
           <rd:DefaultName>Textbox17</rd:DefaultName>
           <Top>0.3175cm</Top>
-          <Left>0cm</Left>
           <Height>0.77639cm</Height>
           <Width>3.98167cm</Width>
           <ZIndex>1</ZIndex>
@@ -844,7 +842,7 @@
         <rd:DataSetName>global</rd:DataSetName>
         <rd:TableName>DaoCliente</rd:TableName>
         <rd:ObjectDataSourceSelectMethod>LeerTodoss</rd:ObjectDataSourceSelectMethod>
-        <rd:ObjectDataSourceType>DaoCliente, App_Code.aacqjqsx, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>DaoCliente, App_Code.gizkijsv, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
