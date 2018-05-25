@@ -28,7 +28,7 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
         if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
                           string.IsNullOrWhiteSpace(txtTelefono.Text))
         {
-            Response.Write("Hay Uno o mas Campos Vacios!");
+            Response.Write("<script>alert('Hay Uno o mas Campos Vacios!')</script>");
         }
         else
         {
@@ -40,22 +40,23 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
             {
                 if (dao.Insertar(m) == 1)
                 {
-                    Response.Write("Registro de mensajeria exitosa !!");
+                    Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
                 }
                 else
                 {
-                    Response.Write("No se pudo llevar a cabo con el registro");
+                    Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
                 }
             }
             else {
+
                 m.Id = Convert.ToInt32(Label2.Text);
                 if (dao.Actualizar(m) == 1)
                 {
-                    Response.Write("Registro de mensajeria exitosa !!");
+                    Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
                 }
                 else
                 {
-                    Response.Write("No se pudo llevar a cabo con el registro");
+                    Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
                 }
                 Response.Redirect("FrmCatalogoMensajeria.aspx");
             }

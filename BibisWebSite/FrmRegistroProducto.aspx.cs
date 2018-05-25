@@ -59,7 +59,8 @@ public partial class FrmProducto : System.Web.UI.Page
             || string.IsNullOrWhiteSpace(txtPrecioV.Text)
             )
         {
-            Response.Write("Hay Uno o mas Campos Vacios!");
+
+            Response.Write("<script>alert('Hay Uno o mas Campos Vacios!')</script>");
         }
         else
         {
@@ -77,18 +78,19 @@ public partial class FrmProducto : System.Web.UI.Page
             {
                 if (daoProducto.Insertar(p) == 1)
                 {
-                    Response.Write("Registro de producto exitoso!!");
+                    
+                    Response.Write("<script>alert('Registro de producto exitoso!!!!')</script>");
                 }
                 else
                 {
-                    Response.Write("No se pudo llevar a cabo con el registro");
+                    Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
                 }
             }
             else {
                 p.Id = Convert.ToInt32(Label2.Text);
                 if (daoProducto.Actualizar(p) == 1)
                 {
-                    Response.Write("Actualizacion exitosa!!");
+                    Response.Write("<script>alert('Actualizacion exitosa!!'></script>");
                     Response.Redirect("FrmCatalogoProductos.aspx");
                 }
                 else {
