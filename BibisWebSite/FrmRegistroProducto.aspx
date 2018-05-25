@@ -1,14 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PrincipalEmpleado.master" AutoEventWireup="true" CodeFile="FrmRegistroProducto.aspx.cs" Inherits="FrmProducto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        #Select1 {
-            width: 130px;
-        }
-        #Select2 {
-            width: 130px;
-        }
-    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
 </asp:Content>
@@ -16,9 +9,10 @@
     Registrar Producto
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
+    <asp:Label ID="Label1" runat="server" Text="ID: " Visible="False"></asp:Label>
+    <asp:Label ID="Label2" runat="server" Visible="False"></asp:Label>
     <div class="row">
-
-    
+        
     <div class ="container row col-sm-9">
     
     <div class="input-group mb-3">
@@ -86,9 +80,9 @@
         <textarea id="txtDescripcion" runat="server" class="form-control" aria-label="With textarea"></textarea>
     </div>
 
-    <asp:button ID="btnAceptar" cssclass="btn btn-info col-sm-3" runat="server" text="Aceptar" OnClick="btnAceptar_Click" />
-    <asp:button ID="btnCancelar" cssclass="btn btn-danger col-sm-3" runat="server" text="Cancelar" OnClick="btnCancelar_Click" />
+    <asp:button ID="btnAceptar" cssclass="btn btn-outline-info col-sm-3" runat="server" text="Agregar" OnClick="btnAceptar_Click" />
+    <asp:button ID="btnCancelar" cssclass="btn btn-outline-danger col-sm-3" runat="server" text="Cancelar" OnClick="btnCancelar_Click" />
     </div>
-   
+   </div>
 </asp:Content>
 

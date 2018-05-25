@@ -16,7 +16,15 @@ public partial class FrmProducto : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         llenarCombos();
+        if (Request.QueryString["id"]!=null) {
+            Label2.Text = Request.QueryString["id"];
+            Label1.Visible = true;
+            Label2.Visible = true;
+            Producto p = daoProducto.Buscar(Convert.ToInt32(Label2.Text));
+            btnAceptar.Text = "Actualizar";
+        }
     }
     public void llenarCombos() {
         cmbCategoria.Items.Clear();
@@ -65,8 +73,30 @@ public partial class FrmProducto : System.Web.UI.Page
             p.Id_proveedor = listaProveedor[cmbProveedor.SelectedIndex].Id;
             p.Id_categoria = listaCategoria[cmbCategoria.SelectedIndex].Id;
             p.Descripcion = txtDescripcion.InnerText;
-            daoProducto.Insertar(p);
-            Response.Redirect("FrmCatalogoProductos.aspx");
+            if (btnAceptar.Text.ToString().Equals("Agregar"))
+            {
+                if (daoProducto.Insertar(p) == 1)
+                {
+                    Response.Write("Registro de producto exitoso!!");
+                }
+                else
+                {
+                    Response.Write("No se pudo llevar a cabo con el registro");
+                }
+            }
+            else {
+                p.Id = Convert.ToInt32(Label2.Text);
+                if (daoProducto.Actualizar(p) == 1)
+                {
+                    Response.Write("Actualizacion exitosa!!");
+                    Response.Redirect("FrmCatalogoProductos.aspx");
+                }
+                else {
+
+                }
+                
+            }
+            
         }
     }
        

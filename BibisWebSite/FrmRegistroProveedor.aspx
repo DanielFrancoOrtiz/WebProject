@@ -8,6 +8,8 @@
     Registro de Proveedor
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
+    <asp:Label ID="Label1" runat="server" Text="ID: " Visible="False"></asp:Label>
+    <asp:Label ID="Label2" runat="server" Text="" Visible="False"></asp:Label>
     <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="lblNombre">Nombre: </span>

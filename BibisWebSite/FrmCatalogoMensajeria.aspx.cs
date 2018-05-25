@@ -78,7 +78,9 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
     }
 
     protected void ActionUpd(object sender, EventArgs e) {
-        Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+        //Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+        Response.Redirect("FrmRegistroMensajeria.aspx?id="+
+            Convert.ToInt32(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text));
     }
     protected void ActionDel(object sender, EventArgs e)
     {

@@ -148,11 +148,30 @@
 
 
 	</div>
-    <div class="btn-group row col-sm-12" role="group" aria-label="Basic example">
-        <asp:Button ID="Button9" CssClass="btn btn-light col-sm-5" runat="server" Text="Anterior" />
-        <asp:Button ID="Button10" CssClass="btn btn-secondary col-sm-2" runat="server" Text="Inicio" />
-        <asp:Button ID="Button11" CssClass="" class="btn btn-light col-sm-5" runat="server" Text="Siguiente" />
-        
-    </div>
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item disabled">
+           <!--     <a class="page-link" href="#" tabindex="-1">Previous</a>-->
+                <asp:button CssClass="page-link" runat="server" tabindex="-1" text="Previus" />
+            </li>
+            <li class="page-item active">
+            <!--    <a class="page-link" href="#">1</a>-->
+                <asp:button runat="server" CssClass="page-link" text="1" />
+            </li>
+            <li class="page-item">
+               <!-- <a class="page-link" href="#">2 </a>-->
+                <asp:button runat="server" cssclass="page-link" text="2" />
+
+            </li>
+            <li class="page-item">
+           <!--     <a class="page-link" href="#">3</a>-->
+                <asp:button runat="server" cssclass="page-link" text="3" />
+            </li>
+            <li class="page-item">
+               <!-- <a class="page-link" href="#">Next</a>-->
+                <asp:button runat="server" cssclass="page-link" text="Next" />
+            </li>
+        </ul>
+    </nav>
 </asp:Content>
 

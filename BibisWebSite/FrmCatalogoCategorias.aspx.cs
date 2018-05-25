@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,12 +11,7 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
     DaoCategoria dao = new DaoCategoria();
     protected void Page_Load(object sender, EventArgs e)
     {
-        // GridView1.DataSource = dao.LeerTodoss();
-        //GridView1.DataBind();
-
         llenarTable();
-
-
     }
     public void llenarTable() {
         List<Categoria> lista = dao.ConsultarTodos();
@@ -76,7 +72,16 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
     }
     protected void ActionUpd(object sender, EventArgs e)
     {
-        Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+        Label2.Visible = true;
+        Label1.Visible = true;
+        Label1.Text = (((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+        DaoCategoria dao = new DaoCategoria();
+        Categoria c = dao.Buscar(Convert.ToInt32(Label1.Text));
+        txtNombre.Text = c.Nombre ;
+        txtDescripcion.Text = c.Descripcion;
+    
+        Button2.Text = "Actualizar";
+        txtNombre.BorderColor = System.Drawing.Color.Gray;
     }
     protected void ActionDel(object sender, EventArgs e)
     {
@@ -84,26 +89,51 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         llenarTable();
     }
 
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("FrmRegistroCategoria.aspx");
-    }
-
     protected void Button2_Click(object sender, EventArgs e)
     {
         DaoCategoria dao = new DaoCategoria();
         Categoria c = new Categoria();
-        c.Nombre = txtNombre.Text.ToString();
-        c.Descripcion = txtDescripcion.Text.ToString();
-        if (dao.Insertar(c) == 1)
+        if (Regex.IsMatch(txtNombre.Text, "[A-Z][a-z+]([ ][A-Za-z0-9])*"))
         {
-           
+            c.Nombre = txtNombre.Text.ToString();
+            c.Descripcion = txtDescripcion.Text.ToString();
+            if (Button2.Text.ToString().Equals("Agregar"))
+            {
+                if (dao.Insertar(c) != 1)
+                {
+                    Button3.Text = "Error";
+
+                }
+            }
+            else
+            {
+                c.Id = Convert.ToInt32(Label1.Text);
+                if (dao.Actualizar(c) != 1)
+                {
+                    Button3.Text = "Error";
+
+                }
+                Label1.Visible = false;
+                Label2.Visible = false;
+                Button2.Text = "Agregar";
+            }
             llenarTable();
+            txtDescripcion.Text = null;
+            txtNombre = null;
+            txtNombre.BorderColor = System.Drawing.Color.Gray;
         }
-        else
-        {
-            Response.Write("Error");
+        else {
+            txtNombre.BorderColor = System.Drawing.Color.Red;
         }
+
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        txtNombre.Text = null;
+        txtDescripcion.Text = null;
+        Label1.Visible = false;
+        Label2.Visible = false;
+
     }
 }

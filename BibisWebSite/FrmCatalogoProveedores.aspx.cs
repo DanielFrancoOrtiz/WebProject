@@ -96,7 +96,8 @@ public partial class FrmCatalogoProveedores : System.Web.UI.Page
 
     protected void ActionUpd(object sender, EventArgs e)
     {
-        Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+        Response.Redirect("FrmRegistroProveedor.aspx?id="+
+        ((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
     }
     protected void ActionDel(object sender, EventArgs e)
     {

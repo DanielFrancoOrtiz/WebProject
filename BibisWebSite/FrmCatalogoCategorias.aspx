@@ -5,7 +5,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
-            <asp:Button ID="Button1" CssClass="btn btn-info col-sm-12" runat="server" Text="Agregar" OnClick="Button1_Click" />
+      
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
@@ -17,6 +17,8 @@
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <asp:Label ID="Label2" runat="server" Text="ID: " Visible="False"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
             <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Nombre: </span>
@@ -27,11 +29,11 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Descripcion: </span>
             </div>
-                <asp:TextBox ID="txtDescripcion" CssClass="form-control"  runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDescripcion" TextMode ="MultiLine" CssClass="form-control"  runat="server"></asp:TextBox>
         </div>
 
-        <asp:Button ID="Button2" CssClass="btn btn-info col-sm-2" runat="server" Text="Aceptar" OnClick="Button2_Click" />
-        <asp:Button ID="Button3" CssClass="btn btn-danger col-sm-2" runat="server" Text="Cancelar" />
+        <asp:Button ID="Button2" CssClass="btn btn-info col-sm-2" runat="server" Text="Agregar" OnClick="Button2_Click" />
+        <asp:Button ID="Button3" CssClass="btn btn-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button3_Click"  />
              
             
        <asp:Table ID="Table1"

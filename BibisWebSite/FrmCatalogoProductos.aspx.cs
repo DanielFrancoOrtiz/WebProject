@@ -99,7 +99,9 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
     }
     protected void ActionUpd(object sender, EventArgs e)
     {
-        Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+        Response.Redirect("FrmRegistroProducto.aspx?id="+
+        ((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+
     }
     protected void ActionDel(object sender, EventArgs e)
     {
