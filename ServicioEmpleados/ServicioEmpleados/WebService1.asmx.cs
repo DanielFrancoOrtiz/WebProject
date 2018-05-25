@@ -187,7 +187,7 @@ namespace ServicioEmpleados
             //{
             String sentencia = "DELETE FROM empleados WHERE id = " + id;
             Conexion con = new Conexion();
-            return bool.Parse(con.ejecutarSentencia(sentencia, false).ToString()) ? 1 : 0;
+            return con.ejecutarSentencia(sentencia, false);
             //}
             //catch (Exception ex)
             //{
