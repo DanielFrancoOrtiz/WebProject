@@ -46,6 +46,10 @@ namespace ServicioEmpleados
         public int Eliminar(int id) {
             return d.Eliminar(id);
         }
+        [WebMethod]
+        public string Logear(string name, string pass) {
+            return JsonConvert.SerializeObject(d.Logear(name, pass));
+        }
 
 
     }
@@ -180,6 +184,37 @@ namespace ServicioEmpleados
             //    }
             //}
         }
+        public Empleado Logear(string user, string pass)
+        {
+            Empleado obj = null;
+            //try
+            //{
+            Conexion con = new Conexion();
+            DataTable dtCategorias = con.ejecutarConsulta("SELECT * FROM empleados WHERE Usuario = '" + user
+                + "' AND Pass  = sha1('" + pass + "')");
+            if (dtCategorias != null && dtCategorias.Rows.Count > 0)
+            {
+                DataRow fila = dtCategorias.Rows[0];
+                obj = new Empleado(int.Parse(fila["id"].ToString()), fila["Nombre"].ToString(),
+                    fila["Apellidos"].ToString(), fila["Usuario"].ToString(), fila["Puesto"].ToString(),
+                    fila["Email"].ToString(), fila["Telefono"].ToString(), fila["Direccion"].ToString(),
+                    fila["Pass"].ToString());
+            }
+            return obj;
+            //}
+            //catch (Exception ex)
+            //{
+            //    return obj;
+            //}
+            //finally
+            //{
+            //    if (Conexion.conexion != null)
+            //    {
+            //        Conexion.conexion.Close();
+            //    }
+            //}
+        }
+
 
         public int Eliminar(int id)
         {
