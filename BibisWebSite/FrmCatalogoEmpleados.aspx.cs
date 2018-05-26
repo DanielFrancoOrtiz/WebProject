@@ -67,6 +67,7 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
                 btn1.Text = "Upd";
                 btn2.Text = "Del";
                 btn1.CssClass = "btn btn-outline-info col-sm-6";
+                btn1.PostBackUrl = "FrmRegistrarLogin.aspx";
                 btn2.CssClass = "btn btn-outline-danger col-sm-6";
                 btn1.Click += new EventHandler(this.ActionUpd);
                 btn2.Click += new EventHandler(this.ActionDel);
@@ -109,11 +110,10 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
         }
 
     }
+    private string Id;
     protected void ActionUpd(object sender, EventArgs e)
     {
-        Response.Redirect("FrmRegistrarLogin.aspx?id="+
-        (((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text));
-        
+        Id = ((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text;       
     }
     protected void ActionDel(object sender, EventArgs e)
     {
@@ -124,5 +124,9 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("FrmRegistrarLogin.aspx");
+    }
+
+    public string getID() {
+        return Id;
     }
 }

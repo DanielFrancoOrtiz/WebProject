@@ -10,10 +10,7 @@ public partial class FrmCatalogoClientes : System.Web.UI.Page
     DaoCliente dao = new DaoCliente();
     protected void Page_Load(object sender, EventArgs e)
     {
-        //GridView1.DataSource = dao.LeerTodoss();
-        //GridView1.DataBind();
-        llenarTable();
-        
+        llenarTable();   
     }
     public void llenarTable() {
         List<Cliente> lista = dao.ConsultarTodos();
@@ -62,17 +59,12 @@ public partial class FrmCatalogoClientes : System.Web.UI.Page
         {
             for (int i = 0; i < lista.Count; i++)
             {
-                Button btn1 = new Button();
-                Button btn2 = new Button();
-                btn1.Text = "Upd";
-                btn2.Text = "Del";
-                btn1.CssClass = "btn btn-outline-info col-sm-6";
-                btn2.CssClass = "btn btn-outline-danger col-sm-6";
-                btn1.Click += new EventHandler(this.ActionUpd);
+            
+                Button btn2 = new Button(); 
+                btn2.Text = "Delete";
+                btn2.CssClass = "btn btn-outline-danger";
                 btn2.Click += new EventHandler(this.ActionDel);
-
                 TableCell c0 = new TableCell();
-                c0.Controls.Add(btn1);
                 c0.Controls.Add(btn2);
 
 
@@ -108,13 +100,8 @@ public partial class FrmCatalogoClientes : System.Web.UI.Page
             }
         }
 
-
     }
 
-    protected void ActionUpd(object sender, EventArgs e)
-    {
-        Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
-    }
 
 
     protected void ActionDel(object sender, EventArgs e)
@@ -122,5 +109,7 @@ public partial class FrmCatalogoClientes : System.Web.UI.Page
         dao.Eliminar(Convert.ToInt32(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text));
         llenarTable();
     }
+
+    
 
 }

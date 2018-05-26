@@ -19,14 +19,15 @@ public partial class FrmProducto : System.Web.UI.Page
     {
         
         llenarCombos();
-        if (Request.QueryString["id"] != null)
+        if (Page.PreviousPage != null)
         {
             if (!Label2.Visible)
             {
-                Label2.Text = Request.QueryString["id"];
+                string id = PreviousPage.getID(); 
+                Label2.Text = id;
                 Label1.Visible = true;
                 Label2.Visible = true;
-                Producto p = daoProducto.Buscar(Convert.ToInt32(Label2.Text));
+                Producto p = daoProducto.Buscar(Convert.ToInt32(id));
                 txtNombre.Text = p.Nombre;
                 txtModelo.Text = p.Modelo;
                 txtCantidad.Text = Convert.ToString( p.Cantidad);

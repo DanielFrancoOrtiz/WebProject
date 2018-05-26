@@ -10,10 +10,7 @@ public partial class FrmCatalogoProveedores : System.Web.UI.Page
     DaoProveedor dao = new DaoProveedor();
     protected void Page_Load(object sender, EventArgs e)
     {
-        //GridView1.DataSource = dao.LeerTodoss();
-        //GridView1.DataBind();
         llenarTable();
-
     }
     public void llenarTable() {
         List<Proveedor> lista = dao.ConsultarTodos();
@@ -59,6 +56,7 @@ public partial class FrmCatalogoProveedores : System.Web.UI.Page
                 btn1.Text = "Upd";
                 btn2.Text = "Del";
                 btn1.CssClass = "btn btn-outline-info col-sm-6";
+                btn1.PostBackUrl = "FrmRegistroProveedor.aspx";
                 btn2.CssClass = "btn btn-outline-danger col-sm-6";
                 btn1.Click += new EventHandler(this.ActionUpd);
                 btn2.Click += new EventHandler(this.ActionDel);
@@ -94,10 +92,11 @@ public partial class FrmCatalogoProveedores : System.Web.UI.Page
         }
     }
 
+    private string Id;
     protected void ActionUpd(object sender, EventArgs e)
     {
-        Response.Redirect("FrmRegistroProveedor.aspx?id="+
-        ((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
+        Id = ((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text;
+
     }
     protected void ActionDel(object sender, EventArgs e)
     {
@@ -108,5 +107,8 @@ public partial class FrmCatalogoProveedores : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("FrmRegistroProveedor.aspx");
+    }
+    public string getID() {
+        return Id;
     }
 }
