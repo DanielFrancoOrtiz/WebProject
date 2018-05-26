@@ -19,7 +19,6 @@
                     <div class="row col-sm-10"> 
                         <ul class="navbar-nav">
                             <li class="nav-item"><div id="logo"><img src="./imgs/LogoBBPN3.png" style="height:50px;" /></div></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmCatalogoProductos.aspx">Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmCatalogoCategorias.aspx">Categorias</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmCatalogoClientes.aspx">Clientes</a></li>
@@ -30,7 +29,7 @@
                    </div>
                    <div class="row col-sm-2">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link" href="FrmLoginEn.aspx">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="FrmLoginEn.aspx">Logout</a></li>
                         </ul>
                    </div>
                 </div>

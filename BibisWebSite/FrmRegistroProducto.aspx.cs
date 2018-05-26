@@ -19,12 +19,23 @@ public partial class FrmProducto : System.Web.UI.Page
     {
         
         llenarCombos();
-        if (Request.QueryString["id"]!=null) {
-            Label2.Text = Request.QueryString["id"];
-            Label1.Visible = true;
-            Label2.Visible = true;
-            Producto p = daoProducto.Buscar(Convert.ToInt32(Label2.Text));
-            btnAceptar.Text = "Actualizar";
+        if (Request.QueryString["id"] != null)
+        {
+            if (!Label2.Visible)
+            {
+                Label2.Text = Request.QueryString["id"];
+                Label1.Visible = true;
+                Label2.Visible = true;
+                Producto p = daoProducto.Buscar(Convert.ToInt32(Label2.Text));
+                txtNombre.Text = p.Nombre;
+                txtModelo.Text = p.Modelo;
+                txtCantidad.Text = Convert.ToString( p.Cantidad);
+                txtPrecioC.Text = Convert.ToString(p.Precio_compra);
+                txtPrecioV.Text = Convert.ToString(p.Precio_venta);
+                txtDescripcion.Value = p.Descripcion;
+               
+                btnAceptar.Text = "Actualizar";
+            }
         }
     }
     public void llenarCombos() {

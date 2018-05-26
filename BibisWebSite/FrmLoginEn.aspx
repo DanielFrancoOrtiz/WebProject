@@ -17,9 +17,11 @@
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
             <form action="#">
-                <input runat="server" type="text" placeholder="Usuario" required>
-                <input runat="server" type="password" placeholder="Contraseña" required>
-                <input runat="server" type="submit" value="Iniciar Sesión">
+                <input runat="server" id ="txtUsuario" type="text" placeholder="Usuario" required>
+                <input runat="server" id="txtPass" type="password" placeholder="Contraseña" required>
+               <!-- <input id="btnInicio" runat="server" type="submit" value="Iniciar Sesión">
+               --> 
+                <asp:button id="btnIni" runat="server" text="Inicio Sesion" onclick="btnIni_Click" />
             </form>
         </div>
 

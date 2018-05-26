@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
-    <asp:Button ID="Button1" CssClass="btn btn-info col-sm-12" runat="server" Text="Agregar" OnClick="Button1_Click" />
+    <asp:Button ID="Button1" CssClass="btn btn-outline-success col-sm-12" runat="server" Text="Agregar" OnClick="Button1_Click" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
     Catálogo de Proveedores

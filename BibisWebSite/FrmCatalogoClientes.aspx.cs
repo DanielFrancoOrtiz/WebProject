@@ -66,8 +66,8 @@ public partial class FrmCatalogoClientes : System.Web.UI.Page
                 Button btn2 = new Button();
                 btn1.Text = "Upd";
                 btn2.Text = "Del";
-                btn1.CssClass = "btn btn-warning col-sm-6";
-                btn2.CssClass = "btn btn-danger col-sm-6";
+                btn1.CssClass = "btn btn-outline-info col-sm-6";
+                btn2.CssClass = "btn btn-outline-danger col-sm-6";
                 btn1.Click += new EventHandler(this.ActionUpd);
                 btn2.Click += new EventHandler(this.ActionDel);
 

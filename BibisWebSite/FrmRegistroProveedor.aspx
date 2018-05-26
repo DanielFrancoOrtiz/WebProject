@@ -51,7 +51,7 @@
     
 
 
-        <asp:Button ID="Button1" CssClass="btn btn-info col-sm-2" runat="server" Text="Aceptar" OnClick="Button1_Click" style="left: 0px; top: 0px" />
-        <asp:Button ID="Button2" CssClass="btn btn-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button2_Click" />
+        <asp:Button ID="Button1" CssClass="btn btn-outline-success col-sm-2" runat="server" Text="Aceptar" OnClick="Button1_Click" />
+        <asp:Button ID="Button2" CssClass="btn btn-outline-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button2_Click" />
 </asp:Content>
 

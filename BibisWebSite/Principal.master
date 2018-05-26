@@ -35,7 +35,7 @@
                    <div class="row col-sm-2">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link" href="FrmLoginEn.aspx">Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="FrmRegistrarLogin.aspx">Registrarte</a></li>
+                            
                         </ul>
                    </div>
                 </div>

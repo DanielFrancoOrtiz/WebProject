@@ -12,15 +12,17 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["id"] != null) {
-           
-            Mensajeria m = dao.Buscar(Convert.ToInt32(Request.QueryString["id"].ToString()));
-            //txtNombre.Text = m.Nombre_mensajeria;
-            //txtTelefono.Text = m.Telefono_mensajeria;
-            //txtEmail.Text = m.Email_mensajeria;
-            Label1.Visible = true;
-            Label2.Text = Request.QueryString["id"];
-            Label2.Visible = true;
-            Button1.Text = "Actualizar";
+
+            if (!Label2.Visible) {
+                Mensajeria m = dao.Buscar(Convert.ToInt32(Request.QueryString["id"].ToString()));
+                txtNombre.Text = m.Nombre_mensajeria;
+                txtTelefono.Text = m.Telefono_mensajeria;
+                txtEmail.Text = m.Email_mensajeria;
+                Label1.Visible = true;
+                Label2.Text = Request.QueryString["id"];
+                Label2.Visible = true;
+                Button1.Text = "Actualizar";
+            }
         }
     }
 

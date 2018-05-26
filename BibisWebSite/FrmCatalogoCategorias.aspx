@@ -32,8 +32,8 @@
                 <asp:TextBox ID="txtDescripcion" TextMode ="MultiLine" CssClass="form-control"  runat="server"></asp:TextBox>
         </div>
 
-        <asp:Button ID="Button2" CssClass="btn btn-info col-sm-2" runat="server" Text="Agregar" OnClick="Button2_Click" />
-        <asp:Button ID="Button3" CssClass="btn btn-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button3_Click"  />
+        <asp:Button ID="Button2" CssClass="btn btn-outline-success col-sm-2" runat="server" Text="Agregar" OnClick="Button2_Click" />
+        <asp:Button ID="Button3" CssClass="btn btn-outline-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button3_Click"  />
              
             
        <asp:Table ID="Table1"

@@ -41,7 +41,7 @@ public class DaoCategoria : IDAO<Categoria>
         //try
         //{
             String sentencia = String.Format("UPDATE categorias SET nombre = '{0}'," +
-                " descripcion = '{1}' WHERE id = {2}",
+                " descripcion = '{1}' WHERE id = {2} ",
                 obj.Nombre,
                 obj.Descripcion,
                 obj.Id);

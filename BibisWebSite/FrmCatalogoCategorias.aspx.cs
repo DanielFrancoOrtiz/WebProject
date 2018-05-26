@@ -45,8 +45,8 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
                 Button btn2 = new Button();
                 btn1.Text = "Upd";
                 btn2.Text = "Del";
-                btn1.CssClass = "btn btn-warning col-sm-6";
-                btn2.CssClass = "btn btn-danger col-sm-6";
+                btn1.CssClass = "btn btn-outline-info col-sm-6";
+                btn2.CssClass = "btn btn-outline-danger col-sm-6";
                 btn1.Click += new EventHandler(this.ActionUpd);
                 btn2.Click += new EventHandler(this.ActionDel);
 
@@ -81,7 +81,7 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         txtDescripcion.Text = c.Descripcion;
     
         Button2.Text = "Actualizar";
-        txtNombre.BorderColor = System.Drawing.Color.Gray;
+        txtNombre.BorderColor = System.Drawing.Color.LightGray;
     }
     protected void ActionDel(object sender, EventArgs e)
     {
@@ -93,7 +93,7 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
     {
         DaoCategoria dao = new DaoCategoria();
         Categoria c = new Categoria();
-        if (Regex.IsMatch(txtNombre.Text, "[A-Z][a-z+]([ ][A-Za-z0-9])*"))
+        if (Regex.IsMatch(txtNombre.Text, "[A-Z][a-z0-9]*"))
         {
             c.Nombre = txtNombre.Text.ToString();
             c.Descripcion = txtDescripcion.Text.ToString();
@@ -119,8 +119,8 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
             }
             llenarTable();
             txtDescripcion.Text = null;
-            txtNombre = null;
-            txtNombre.BorderColor = System.Drawing.Color.Gray;
+            txtNombre.Text = null;
+            txtNombre.BorderColor = System.Drawing.Color.LightGray;
         }
         else {
             txtNombre.BorderColor = System.Drawing.Color.Red;
@@ -134,6 +134,7 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         txtDescripcion.Text = null;
         Label1.Visible = false;
         Label2.Visible = false;
+        Button2.Text = "Agregar";
 
     }
 }
