@@ -7,14 +7,14 @@
 }
 
 body {
-    background: url(../imgs/th2.jpg);
+    background: url(../imgs/fondologin2.0.jpg);
     background-size: cover;
     background-attachment: fixed;
     font-family: Roboto;
 }
 
 .contenedor-form {
-    background: rgba(0,0,0,.7);
+    background: rgb(25, 24, 24);
     max-width: 500px;
     width: 100%;
     margin: 48px auto;
@@ -63,11 +63,11 @@ body {
     width: 100%;
     padding: 10px 15px;
     margin: 0 0 20px 0;
-    background: rgba(0,0,0,.5);
+    background: rgb(255, 255, 255);
     color: #fff;
     border: none;
     border-radius: 2px;
-    border-bottom: 4px solid #ff851b;
+    border-bottom: 4px solid #000000;
     box-sizing: border-box;
     font-family: Roboto;
     font-size: 14px;
@@ -78,16 +78,17 @@ body {
 .contenedor-form input[type="text"]:focus,
 .contenedor-form input[type="password"]:focus,
 .contenedor-form input[type="email"]:focus {
-    border-bottom: 4px solid #0075d9;
+    border-bottom: 4px solid #e27a7a;
 }
 
 .contenedor-form input[type="submit"] {
-    background: #FF851B;
-    color: #FFF;
+    background: #000000;
+    color: rgb(255, 255, 255);
     width: 100%;
     border: none;
+    border-radius: 8px;
     padding: 10px 0;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: normal;
     font-family: Roboto;
     letter-spacing: 1px;
@@ -96,11 +97,12 @@ body {
 }
 
 .contenedor-form input[type="submit"]:hover {
-    background: rgba(0, 117, 217, 0.7);
+    background: rgb(255, 255, 255);
+    color: black;
 }
 
 .contenedor-form .reset-password {
-    background: rgba(0, 117, 217, .7);
+    /*background: rgba(0, 117, 217, .7);*/
     width: 100%;
     padding: 15px 0;
     text-align: center;
