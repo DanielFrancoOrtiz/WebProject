@@ -9,20 +9,18 @@
 </head>
 <body>
      <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
+        <asp:ScriptManager ID="ScriptManager2" runat="server">
+         </asp:ScriptManager>
     <div>
-    
     </div>
-
-   <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="879px">
-            <LocalReport ReportPath="ListadoClientes.rdlc">
+         <rsweb:ReportViewer ID="ReportViewer2" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="879px">
+        <LocalReport ReportPath="ListadoClientes.rdlc">
                 <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="ClientesDataSet1" />
+                    <%--<rsweb:ReportDataSource DataSourceId="ObjectDataSource2" Name="ClientesDataSet1" />--%>
                 </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="ConsultarTodos" TypeName="global.DaoCliente"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="LeerTodoss" TypeName="global.DaoCliente"></asp:ObjectDataSource>
     </form>
 </body>
 </html>

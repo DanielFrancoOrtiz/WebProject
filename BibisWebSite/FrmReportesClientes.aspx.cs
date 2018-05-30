@@ -16,11 +16,11 @@ public partial class FrmReportesClientes : System.Web.UI.Page
         //Crear la fuente de datos para el reporte (se requiere importar además de modelo y datos, el namespace
         //Microsoft.Reporting.WebForms que es donde se encuentra la clase ReportDataSource)
         //NOTA: "ListaDatos" debe coincidir con la fuente de datos que ustedes usaron al crear el reporte mediante el asistente.
-        ReportDataSource fuente = new ReportDataSource("ClientesDataSet1", new DaoCliente().ConsultarTodos());
+        ReportDataSource fuente = new ReportDataSource("ClientesDataSet1", new DaoCliente().LeerTodoss());
 
 
         //Asignar la fuente de datos creada al reporte
-        ReportViewer1.LocalReport.DataSources.Add(fuente);
+        ReportViewer2.LocalReport.DataSources.Add(fuente);
         
     }
 }

@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style type="text/css">
+    <style>
+       
         .mySlides {
     display:none;
     
@@ -15,10 +15,11 @@
         body {
          background-color:white;
         }
-
-</style>
+    </style>
+     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
+  
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
 </asp:Content>
