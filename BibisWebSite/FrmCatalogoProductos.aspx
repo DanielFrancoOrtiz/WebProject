@@ -20,7 +20,6 @@
             <asp:TableHeaderCell Scope="Column" runat="server">Cantidad</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Precio Compra</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Precio Venta</asp:TableHeaderCell>
-
         </asp:TableHeaderRow>
 
     </asp:Table>

@@ -15,8 +15,27 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
     string SampleID;
     XmlDocument xmlDoc;
     XmlDocument xdco = new XmlDocument();
+    DaoProveedor dao = new DaoProveedor();
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Page.PreviousPage != null)
+        {
+            if (!Label2.Visible)
+            {
+                string id = PreviousPage.getID();
+                Label2.Text = id;
+                Label1.Visible = true;
+                Label2.Visible = true;
+                Proveedor p = dao.Buscar(Convert.ToInt32(id));
+                txtNombre.Text = p.Nombre_proveedor;
+                txtTelefono.Text = p.Telefono_proveedor;
+                txtEmail.Text = p.Email_proveedor;
+                txtDireccion.Text = p.Direccion_proveedor;
+                txtCiudad.Text = p.Ciudad_proveedor;
+                Button1.Text = "Actualizar";
+            }
+        }
 
     }
 
@@ -24,9 +43,6 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
     {
         DataSet ds = new DataSet();
         ds.ReadXml(Server.MapPath("DatosProveedor.xml"));
-        //GridView1.DataSource = ds;
-       // GridView1.DataBind();
-
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -41,70 +57,83 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
         {
             if (validar())
             {
-                string fileXML = Server.MapPath("DatosProveedor.xml");
-                if (File.Exists(fileXML) == true)
+                Proveedor p = new Proveedor();
+                p.Nombre_proveedor = txtNombre.Text;
+                p.Email_proveedor = txtEmail.Text;
+                p.Telefono_proveedor = txtTelefono.Text;
+                p.Direccion_proveedor = txtDireccion.Text;
+                p.Ciudad_proveedor = txtCiudad.Text;
+                if (Button1.Text.ToString().Equals("Agregar"))
                 {
+                    if (dao.Insertar(p) == 1)
+                    {
+                        Response.Write("<script>alert('Registro de proveedor exitoso!!!!')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
+                    }
 
-                    xdco.Load(Server.MapPath("DatosProveedor.xml"));
-                    XmlElement Proveedoor = xdco.CreateElement("DatosProveedor");
-
-                    //atributos o elementos internos
-
-
-                    XmlElement nombre = xdco.CreateElement("Nombre");
-                    XmlText xmlNOmbre = xdco.CreateTextNode(txtNombre.Text);
-
-                    XmlElement email = xdco.CreateElement("Email");
-                    XmlText xmlemail = xdco.CreateTextNode(txtEmail.Text);
-
-                    XmlElement telefono = xdco.CreateElement("Telefono");
-                    XmlText xmlTelefono = xdco.CreateTextNode(txtTelefono.Text);
-
-                    XmlElement direccion = xdco.CreateElement("Direccion");
-                    XmlText xmlDireccion = xdco.CreateTextNode(txtDireccion.Text);
-
-                    XmlElement Ciudad = xdco.CreateElement("Cuidad");
-                    XmlText xmlCuidad = xdco.CreateTextNode(txtCiudad.Text);
-
-
-                    //crea los nodos hijo
-
-                    nombre.AppendChild(xmlNOmbre);
-                    email.AppendChild(xmlemail);
-                    telefono.AppendChild(xmlTelefono);
-                    direccion.AppendChild(xmlDireccion);
-                    Ciudad.AppendChild(xmlCuidad);
-                    //crea los nodos hijo
-
-                    Proveedoor.AppendChild(nombre);
-                    Proveedoor.AppendChild(email);
-                    Proveedoor.AppendChild(telefono);
-                    Proveedoor.AppendChild(direccion);
-                    Proveedoor.AppendChild(Ciudad);
-
-                    //ahora insertaos el nodo hijo al nodo raiz
-                    xdco.DocumentElement.AppendChild(Proveedoor);
-
-                    //guarda el archivo
-                    xdco.Save(Server.MapPath("DatosProveedor.xml"));
-                    mostrar();
-
+                    string fileXML = Server.MapPath("DatosProveedor.xml");
+                    if (File.Exists(fileXML) == true)
+                    {
+                        xdco.Load(Server.MapPath("DatosProveedor.xml"));
+                        XmlElement Proveedoor = xdco.CreateElement("DatosProveedor");
+                        //atributos o elementos internos
+                        XmlElement nombre = xdco.CreateElement("Nombre");
+                        XmlText xmlNOmbre = xdco.CreateTextNode(p.Nombre_proveedor);
+                        XmlElement email = xdco.CreateElement("Email");
+                        XmlText xmlemail = xdco.CreateTextNode(p.Email_proveedor);
+                        XmlElement telefono = xdco.CreateElement("Telefono");
+                        XmlText xmlTelefono = xdco.CreateTextNode(p.Telefono_proveedor);
+                        XmlElement direccion = xdco.CreateElement("Direccion");
+                        XmlText xmlDireccion = xdco.CreateTextNode(p.Direccion_proveedor);
+                        XmlElement Ciudad = xdco.CreateElement("Ciudad");
+                        XmlText xmlCuidad = xdco.CreateTextNode(p.Ciudad_proveedor);
+                        //crea los nodos hijo
+                        nombre.AppendChild(xmlNOmbre);
+                        email.AppendChild(xmlemail);
+                        telefono.AppendChild(xmlTelefono);
+                        direccion.AppendChild(xmlDireccion);
+                        Ciudad.AppendChild(xmlCuidad);
+                        //crea los nodos hijo
+                        Proveedoor.AppendChild(nombre);
+                        Proveedoor.AppendChild(email);
+                        Proveedoor.AppendChild(telefono);
+                        Proveedoor.AppendChild(direccion);
+                        Proveedoor.AppendChild(Ciudad);
+                        //ahora insertaos el nodo hijo al nodo raiz
+                        xdco.DocumentElement.AppendChild(Proveedoor);
+                        //guarda el archivo
+                        xdco.Save(Server.MapPath("DatosProveedor.xml"));
+                        mostrar();
+                    }
+                    else
+                    {
+                        XmlTextWriter xtw = new XmlTextWriter(fileXML, null);
+                        xtw.WriteStartDocument();
+                        xtw.WriteStartElement("Proveedores");
+                        xtw.WriteStartElement("Proveedor");
+                        xtw.WriteElementString("Nombre", p.Nombre_proveedor);
+                        xtw.WriteElementString("Email", p.Email_proveedor);
+                        xtw.WriteElementString("Telefono", p.Telefono_proveedor);
+                        xtw.WriteElementString("Direccion", p.Direccion_proveedor);
+                        xtw.WriteElementString("Ciudad", p.Ciudad_proveedor);
+                        xtw.WriteEndElement();
+                        xtw.WriteEndElement();
+                        xtw.Close();
+                    }
                 }
-                else
-                {
-                    XmlTextWriter xtw = new XmlTextWriter(fileXML, null);
-                    xtw.WriteStartDocument();
-                    xtw.WriteStartElement("Proveedores");
-                    xtw.WriteStartElement("Proveedor");
-
-                    xtw.WriteElementString("Nombre", txtNombre.Text);
-                    xtw.WriteElementString("Email", txtEmail.Text);
-                    xtw.WriteElementString("Telefono", txtTelefono.Text);
-                    xtw.WriteElementString("Direccion", txtDireccion.Text);
-                    xtw.WriteElementString("Cuidad", txtCiudad.Text);
-                    xtw.WriteEndElement();//cierre de nodo
-                    xtw.WriteEndElement();
-                    xtw.Close();
+                else {
+                    p.Id = Convert.ToInt32(Label2.Text);
+                    if (dao.Actualizar(p) == 1)
+                    {
+                        Response.Write("<script>alert('Actualizacion exitosa!!')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('No se pudo llevar la actualización')</script>");
+                    }
 
                 }
             }
@@ -123,7 +152,6 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
         txtEmail.BorderColor = System.Drawing.Color.Gray;
         txtDireccion.BorderColor = System.Drawing.Color.Gray;
         txtCiudad.BorderColor = System.Drawing.Color.Gray;
-
         if (!Regex.IsMatch(txtNombre.Text, "[A-Z][a-z]+([ ][A-Za-z]+)*"))
         {
             isValid = false;
@@ -145,8 +173,7 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
         {
             isValid = false;
             txtCiudad.BorderColor = System.Drawing.Color.Red;
-        }
-     
+        }     
         return isValid;
     }
 

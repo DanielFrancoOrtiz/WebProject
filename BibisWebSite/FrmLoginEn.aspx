@@ -27,7 +27,7 @@
 
        
         <div class="reset-password">
-            <a href="#">Olvide mi Contraseña?</a>
+            <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
     </div>
     <script src="Styles/js/jquery-3.3.1.min.js"></script>

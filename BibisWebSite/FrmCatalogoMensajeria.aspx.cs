@@ -52,6 +52,7 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
                 btn2.CssClass = "btn btn-outline-danger col-sm-6";
                 btn1.Click += new EventHandler(this.ActionUpd);
                 btn2.Click += new EventHandler(this.ActionDel);
+                btn1.PostBackUrl = "FrmRegistroMensajeria.aspx";
 
                 TableCell c0 = new TableCell();
                 c0.Controls.Add(btn1);
@@ -76,11 +77,11 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
             }
         }
     }
-
+    private string Id;
     protected void ActionUpd(object sender, EventArgs e) {
         //Response.Write(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text);
-        Response.Redirect("FrmRegistroMensajeria.aspx?id="+
-            Convert.ToInt32(((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text));
+        //Response.Redirect("FrmRegistroMensajeria.aspx?id="+
+        Id=((TableRow)(((Button)sender).Parent.Parent)).Cells[1].Text;
     }
     protected void ActionDel(object sender, EventArgs e)
     {
@@ -91,5 +92,10 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("FrmRegistroMensajeria.aspx");
+    }
+
+    public string getID() {
+
+        return Id;
     }
 }

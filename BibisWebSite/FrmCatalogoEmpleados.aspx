@@ -21,7 +21,6 @@
             <asp:TableHeaderCell Scope="Column" runat="server">Telefono</asp:TableHeaderCell>
             <asp:TableHeaderCell Scope="Column" runat="server">Direccion</asp:TableHeaderCell>
         </asp:TableHeaderRow>
-
     </asp:Table>
 </asp:Content>
 
