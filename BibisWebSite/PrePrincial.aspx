@@ -7,9 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
       <link rel="stylesheet" href="Styles/imagenesAnimadas.css">
+     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minium-scale=1.0">
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="contenedorPrincipal">
        <center>
     <a href="Default.aspx">Haz clic aqui</a>
     </center>
@@ -26,6 +28,7 @@
 		<li><img src="../imgs/imagenAnimada4.jpg"></li>
 </ul>
     </div>
+            </div>
     </form>
 </body>
 </html>

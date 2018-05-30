@@ -1,6 +1,6 @@
     body{
             background: #FE2EF7;
-               margin-top: 4%;
+               margin-top: 6%;
         }
         a{
             font: bold 25px Verdana;
@@ -69,5 +69,18 @@
             margin-left: 100px;
         }
 
+ .contenedorPrincipal{
+            width:1000%;
+            max-width:1000px;
+            margin:0 auto;
+            overflow:hidden;
+        }
+        @media screen and (max-width: 800px){
+            #encabezado{width:100%;}
+            #contenidoEncabezado {width:100%;}
+        }
 
-        
+         @media screen and (max-width: 400px){
+            .contenedorPrincipal{width:100%;}
+            #contenidoEncabezado {display:none;}
+        } 
