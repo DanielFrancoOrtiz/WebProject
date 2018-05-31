@@ -68,7 +68,7 @@ namespace ServicioEmpleados
             //{
             String sentencia = String.Format("INSERT INTO empleados (Nombre, Apellidos, Usuario," +
                 " Puesto, Email, Telefono, Direccion, Pass) " +
-                "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}');",
+                "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}',sha1('{7}'));",
                 obj.Nombre,
                 obj.Apellidos,
                 obj.Usuario,
@@ -99,7 +99,7 @@ namespace ServicioEmpleados
             //{
             String sentencia = String.Format("UPDATE empleados SET Nombre = '{0}'," +
                 " Apellidos = '{1}', Usuario = '{2}', Puesto = '{3}', Email = '{4}', Telefono = '{5}'," +
-                " Direccion = '{6}', Pass = '{7}' WHERE id = {8}",
+                " Direccion = '{6}', Pass = sha1('{7}') WHERE id = {8}",
                 obj.Nombre,
                 obj.Apellidos,
                 obj.Usuario,
