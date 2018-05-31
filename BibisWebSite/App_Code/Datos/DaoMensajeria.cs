@@ -15,8 +15,8 @@ public class DaoMensajeria : IDAO<Mensajeria>
     }
     public int Insertar(Mensajeria obj)
     {
-        //try
-        //{
+        try
+        {
             String sentencia = String.Format("INSERT INTO mensajeria (Nombre, Email, Telefono) " +
                 "VALUES('{0}', '{1}', '{2}');",
                 obj.Nombre_mensajeria,
@@ -24,23 +24,23 @@ public class DaoMensajeria : IDAO<Mensajeria>
                 obj.Telefono_mensajeria);
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, true);
-        //}
-        //catch (Exception ex)
-        //{
-        //    return 0;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
     public int Actualizar(Mensajeria obj)
     {
-        //try
-        //{
+        try
+        {
             String sentencia = String.Format("UPDATE mensajeria SET Nombre = '{0}'," +
                 " Email = '{1}', Telefono = '{2}' WHERE id = {3}",
                 obj.Nombre_mensajeria,
@@ -49,25 +49,25 @@ public class DaoMensajeria : IDAO<Mensajeria>
                 obj.Id);
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, false);
-        //}
-        //catch (Exception ex)
-        //{
-        //    return 0;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public Mensajeria Buscar(int id)
     {
         Mensajeria obj = null;
-        //try
-        //{
+        try
+        {
             Conexion con = new Conexion();
             DataTable dtCategorias = con.ejecutarConsulta("SELECT * FROM mensajeria WHERE id = " + id);
             if (dtCategorias != null && dtCategorias.Rows.Count > 0)
@@ -77,25 +77,25 @@ public class DaoMensajeria : IDAO<Mensajeria>
                     fila["Email"].ToString(), fila["Telefono"].ToString());
             }
             return obj;
-        //}
-        //catch (Exception ex)
-        //{
-        //    return obj;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return obj;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public List<Mensajeria> ConsultarTodos()
     {
         List<Mensajeria> lista = new List<Mensajeria>();
-        //try
-        //{
+        try
+        {
             Conexion con = new Conexion();
             DataTable dt = con.ejecutarConsulta("select * from mensajeria");
             Mensajeria obj = null;
@@ -106,39 +106,39 @@ public class DaoMensajeria : IDAO<Mensajeria>
                 lista.Add(obj);
             }
             return lista;
-        //}
-        //catch (Exception ex)
-        //{
-        //    return lista;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return lista;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public int Eliminar(int id)
     {
-        //try
-        //{
+        try
+        {
             String sentencia = "DELETE FROM mensajeria WHERE id = " + id;
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, false);
-        //}
-        //catch (Exception ex)
-        //{
-        //    return 0;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public DataTable LeerTodoss()

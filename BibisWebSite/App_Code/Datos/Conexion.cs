@@ -33,60 +33,60 @@ public class Conexion
 
     public DataTable ejecutarConsulta(String sentencia)
     {
-        //try
-        //{
-        //    if (Conectar())
-        //    {
-        Conectar();
+        try
+        {
+            if (Conectar())
+            {
+                Conectar();
                 MySqlDataAdapter objAdapter =
                     new MySqlDataAdapter(sentencia, conexion);
                 DataTable resultado = new DataTable();
                 objAdapter.Fill(resultado);
                 return resultado;
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    return null;
-        //}
-        //finally
-        //{
-        //    if (conexion != null)
-        //        conexion.Close();
-        //}
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+        finally
+        {
+            if (conexion != null)
+                conexion.Close();
+        }
 
     }
 
 
     public int ejecutarSentencia(String sentencia, bool esInsert)
     {
-        //try
-        //{
-        //    if (Conectar())
-        //    {
+        try
+        {
+            if (Conectar())
+            {
                 Conectar();
                 MySqlCommand objComando = new MySqlCommand(sentencia, conexion);
                 objComando.ExecuteNonQuery();
                 return 1;
-        //    }
-        //    else
-        //    {
-        //        return 0;
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    return 0;
-        //}
-        //finally
-        //{
-        //    if (conexion != null)
-        //        conexion.Close();
-        //}
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+        finally
+        {
+            if (conexion != null)
+                conexion.Close();
+        }
     }
 
     public DataTable ejecutarConsulta(MySqlCommand com)

@@ -16,8 +16,8 @@ public class DaoProveedor : IDAO<Proveedor>
 
     public int Insertar(Proveedor obj)
     {
-        //try
-        //{
+        try
+        {
             String sentencia = String.Format("INSERT INTO proveedores (Nombre, " +
                 " Email, Telefono, Direccion, Ciudad) " +
                 "VALUES('{0}','{1}','{2}','{3}','{4}');",
@@ -28,24 +28,24 @@ public class DaoProveedor : IDAO<Proveedor>
                 obj.Ciudad_proveedor);
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, true);
-        //}
-        //catch (Exception ex)
-        //{
-        //    return 0;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public int Actualizar(Proveedor obj)
     {
-        //try
-        //{
+        try
+        {
             String sentencia = String.Format("UPDATE proveedores SET Nombre = '{0}'," +
                 " Email = '{1}', Telefono = '{2}', Direccion = '{3}'," +
                 " Ciudad = '{4}' WHERE id = {5}",
@@ -57,25 +57,25 @@ public class DaoProveedor : IDAO<Proveedor>
                 obj.Id);
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, false);
-        //}
-        //catch (Exception ex)
-        //{
-        //    return 0;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public Proveedor Buscar(int id)
     {
         Proveedor obj = null;
-        //try
-        //{
+        try
+        {
             Conexion con = new Conexion();
             DataTable dtCategorias = con.ejecutarConsulta("SELECT * FROM proveedores WHERE id = " + id);
             if (dtCategorias != null && dtCategorias.Rows.Count > 0)
@@ -87,25 +87,25 @@ public class DaoProveedor : IDAO<Proveedor>
                     fila["Ciudad"].ToString());
             }
             return obj;
-        //}
-        //catch (Exception ex)
-        //{
-        //    return obj;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return obj;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public List<Proveedor> ConsultarTodos()
     {
         List<Proveedor> lista = new List<Proveedor>();
-        //try
-        //{
+        try
+        {
             Conexion con = new Conexion();
             DataTable dt = con.ejecutarConsulta("select * from proveedores");
             Proveedor obj = null;
@@ -118,39 +118,39 @@ public class DaoProveedor : IDAO<Proveedor>
                 lista.Add(obj);
             }
             return lista;
-        //}
-        //catch (Exception ex)
-        //{
-        //    return lista;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return lista;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public int Eliminar(int id)
     {
-        //try
-        //{
+        try
+        {
             String sentencia = "DELETE FROM proveedores WHERE id = " + id;
             Conexion con = new Conexion();
             return con.ejecutarSentencia(sentencia, false);
-        //}
-        //catch (Exception ex)
-        //{
-        //    return 0;
-        //}
-        //finally
-        //{
-        //    if (Conexion.conexion != null)
-        //    {
-        //        Conexion.conexion.Close();
-        //    }
-        //}
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+        finally
+        {
+            if (Conexion.conexion != null)
+            {
+                Conexion.conexion.Close();
+            }
+        }
     }
 
     public DataTable LeerTodoss()
