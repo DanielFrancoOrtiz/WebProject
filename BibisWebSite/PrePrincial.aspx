@@ -8,6 +8,7 @@
     <title></title>
       <link rel="stylesheet" href="Styles/imagenesAnimadas.css">
      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minium-scale=1.0">
+
 </head>
 <body>
     <form id="form1" runat="server">

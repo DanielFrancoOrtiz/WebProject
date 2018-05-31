@@ -13,8 +13,11 @@
         }
 
         body {
-         background-color:white;
+     background: url(../imgs/fondologin2.0.jpg);
+         font-family: sans-serif Latha;
+         font-size:18px;  
         }
+      
     </style>
      
 </asp:Content>
@@ -25,11 +28,11 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
     <div class="w3-content w3-section" style="max-width:300px">
-  <img class="mySlides" src="../imgs/grand1.png" style="width:200%">
-  <img class="mySlides" src="../imgs/grand2.jpg" style="width:160%">
-  <img class="mySlides" src="../imgs/grand3.jpg" style="width:160%">
-<img class="mySlides" src="../imgs/grand4.jpeg" style="width:200%">
-  <img class="mySlides" src="../imgs/grand5.jpg" style="width:200%">
+  <img class="mySlides" src="../imgs/grand1.png" style="width:300%">
+
+  <img class="mySlides" src="../imgs/grandV21.jpg" style="width:300%">
+<img class="mySlides" src="../imgs/grand4.jpeg" style="width:260%">
+  <img class="mySlides" src="../imgs/grand5.jpg" style="width:260%">
 </div>
     <script type="text/javascript">
       var myIndex = 0;

@@ -7,10 +7,11 @@
 }
 
 body {
-    background: url(../imgs/fondologin2.0.jpg);
+    background: url(../imgs/fondologin.jpg);
     background-size: cover;
     background-attachment: fixed;
-    font-family: Roboto;
+       font-family: sans-serif Latha;
+  font-size:18px;  
 }
 
 .contenedor-form {
@@ -69,7 +70,7 @@ body {
     border-radius: 2px;
     border-bottom: 4px solid #000000;
     box-sizing: border-box;
-    font-family: Roboto;
+  font-family: sans-serif Latha;
     font-size: 14px;
     font-weight:normal;
     transition: all .5s ease;
@@ -90,7 +91,7 @@ body {
     padding: 10px 0;
     font-size: 20px;
     font-weight: normal;
-    font-family: Roboto;
+   font-family: sans-serif Latha;
     letter-spacing: 1px;
     cursor: pointer;
     transition: all .5s ease;

@@ -8,6 +8,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minium-scale=1.0">
     
     <style type="text/css">
+        
+            body {
+    background: url(../imgs/fondologin.jpg);
+         font-family: sans-serif Latha;
+         font-size:18px;  
+        }
         .contenedorPrincipal{
             width:89%;
             max-width:1000px;
@@ -64,7 +70,10 @@
         <div id="cuerpo" class="row col-sm-12" >
             <div id="menuEspecifico" class="container col-sm-2" style="background-color: rgb(240, 222, 247); height:550px;">
                  <asp:ContentPlaceHolder id="contenidoMenuEspecifico" runat="server">
-              
+                <div>
+
+                   
+                </div>
                  </asp:ContentPlaceHolder>
             </div>
             <div id="contenido" class="container col-sm-10">
@@ -82,7 +91,7 @@
             </div>
             <div id="pie" class="text-center col-sm-12" style="background-color: rgb(255, 98, 160);">
               
-                   <img class="iconosPie" src="../imgs/Facebook2.png" style="width:4%" />
+                  <img class="iconosPie" src="../imgs/Facebook2.png" style="width:4%" />
                    <img class="iconosPie" src="../imgs/whatsappp2.png" style="width:5%" />
                
             </div>
