@@ -118,6 +118,12 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
     {
         Response.Redirect("FrmRegistroProducto.aspx");
     }
+
+    protected void btnGenerarReporte_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("FrmReporteOrdenes.aspx");
+    }
+
     public string getID() {
         return Id;
     }

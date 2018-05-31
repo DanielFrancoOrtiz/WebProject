@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.Reporting.WebForms;
 
-public partial class FrmReportesClientes : System.Web.UI.Page
+public partial class FrmReporteOrdenes : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -16,11 +16,11 @@ public partial class FrmReportesClientes : System.Web.UI.Page
         //Crear la fuente de datos para el reporte (se requiere importar además de modelo y datos, el namespace
         //Microsoft.Reporting.WebForms que es donde se encuentra la clase ReportDataSource)
         //NOTA: "ListaDatos" debe coincidir con la fuente de datos que ustedes usaron al crear el reporte mediante el asistente.
-        ReportDataSource fuente = new ReportDataSource("ClientesDataSet1", new DaoCliente().LeerTodoss());
+        ReportDataSource fuente = new ReportDataSource("OrdenesDataSet", new DaoOrden().ConsultarTodos());
 
 
         //Asignar la fuente de datos creada al reporte
         ReportViewer2.LocalReport.DataSources.Add(fuente);
-        
+
     }
 }

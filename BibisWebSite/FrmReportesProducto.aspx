@@ -1,5 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FrmReportesClientes.aspx.cs" Inherits="FrmReportesClientes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FrmReportesProducto.aspx.cs" Inherits="FrmReportesProducto" %>
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,19 +9,18 @@
     <title></title>
 </head>
 <body>
-     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager2" runat="server">
-         </asp:ScriptManager>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div>
-    </div>
          <rsweb:ReportViewer ID="ReportViewer2" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="879px">
-        <LocalReport ReportPath="ListadoClientes.rdlc">
+        <LocalReport ReportPath="ListadoProductos.rdlc">
                 <DataSources>
                     <%--<rsweb:ReportDataSource DataSourceId="ObjectDataSource2" Name="ClientesDataSet1" />--%>
                 </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>
-        <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="LeerTodoss" TypeName="global.DaoCliente"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="ConsultarTodos" TypeName="global.DaoProducto"></asp:ObjectDataSource>
+    </div>
     </form>
 </body>
 </html>
