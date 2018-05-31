@@ -11,16 +11,25 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
     DaoCategoria dao = new DaoCategoria();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Nombre"] != null)
+        {
+            
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
         llenarTable();
     }
     public void llenarTable() {
         List<Categoria> lista = dao.ConsultarTodos();
 
         Table1.Rows.Clear();
-
+        TableHeaderRow hr = new TableHeaderRow();
         TableHeaderCell h0 = new TableHeaderCell();
         h0.Scope = TableHeaderScope.Column;
         h0.Text = "Administrar";
+        hr.Cells.Add(h0);
         TableHeaderCell h1 = new TableHeaderCell();
         h1.Scope = TableHeaderScope.Column;
         h1.Text = "ID";
@@ -30,8 +39,8 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         TableHeaderCell h3 = new TableHeaderCell();
         h3.Scope = TableHeaderScope.Column;
         h3.Text = "Descripcion";
-        TableHeaderRow hr = new TableHeaderRow();
-        hr.Cells.Add(h0);
+        
+        
         hr.Cells.Add(h1);
         hr.Cells.Add(h2);
         hr.Cells.Add(h3);
@@ -41,19 +50,26 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         {
             for (int i = 0; i < lista.Count; i++)
             {
-                Button btn1 = new Button();
-                Button btn2 = new Button();
-                btn1.Text = "Upd";
-                btn2.Text = "Del";
-                btn1.CssClass = "btn btn-outline-info col-sm-6";
-                btn2.CssClass = "btn btn-outline-danger col-sm-6";
-                btn1.Click += new EventHandler(this.ActionUpd);
-                btn2.Click += new EventHandler(this.ActionDel);
+                TableRow tr = new TableRow();
+                if (Session["Puesto"].ToString().Equals("Administrador"))
+                {
+                    Button btn1 = new Button();
+                    Button btn2 = new Button();
+                    btn1.Text = "Upd";
+                    btn2.Text = "Del";
+                    btn1.CssClass = "btn btn-outline-info col-sm-6";
+                    btn2.CssClass = "btn btn-outline-danger col-sm-6";
+                    btn1.Click += new EventHandler(this.ActionUpd);
+                    btn2.Click += new EventHandler(this.ActionDel);
 
-                TableCell c0 = new TableCell();
-                c0.Controls.Add(btn1);
-                c0.Controls.Add(btn2);
-
+                    TableCell c0 = new TableCell();
+                    c0.Controls.Add(btn1);
+                    c0.Controls.Add(btn2);
+                    tr.Cells.Add(c0);
+                }
+                else {
+                   // Table1.Rows[0].Cells.RemoveAt(0);
+                }
 
                 TableCell c1 = new TableCell();
                 c1.Text = Convert.ToString(lista[i].Id);
@@ -61,8 +77,10 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
                 c2.Text = lista[i].Nombre;
                 TableCell c3 = new TableCell();
                 c3.Text = lista[i].Descripcion;
-                TableRow tr = new TableRow();
-                tr.Cells.Add(c0);
+               
+
+
+                
                 tr.Cells.Add(c1);
                 tr.Cells.Add(c2);
                 tr.Cells.Add(c3);

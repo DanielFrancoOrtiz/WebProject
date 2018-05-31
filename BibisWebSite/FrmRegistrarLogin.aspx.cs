@@ -10,8 +10,19 @@ public partial class FrmRegistrarLogin : System.Web.UI.Page
     WebService1.WebService1SoapClient servicio = new WebService1.WebService1SoapClient();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Nombre"] != null)
+        {
+            Response.Write("<script>alert('Welcome!!" + Session["Nombre"].ToString() + "')</script>");
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
+
         if (Page.PreviousPage != null)
         {
+            
+
             if (!lblID.Visible)
             {
                 string id = PreviousPage.getID();

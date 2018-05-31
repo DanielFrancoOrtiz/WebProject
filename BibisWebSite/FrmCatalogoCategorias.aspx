@@ -24,24 +24,27 @@
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <asp:Label ID="Label2" runat="server" Text="ID: " Visible="False"></asp:Label>
-            <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
-            <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Nombre: </span>
-            </div>
-           <asp:TextBox ID="txtNombre" CssClass="form-control"  runat="server"></asp:TextBox>
-           </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Descripcion: </span>
-            </div>
-                <asp:TextBox ID="txtDescripcion" TextMode ="MultiLine" CssClass="form-control"  runat="server"></asp:TextBox>
-        </div>
+            <div runat="server" id="divAdm">
+                <asp:Label ID="Label2" runat="server" Text="ID: " Visible="False"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nombre: </span>
+                    </div>
+                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Descripcion: </span>
+                    </div>
+                    <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
 
-        <asp:Button ID="Button2" CssClass="btn btn-outline-success col-sm-2" runat="server" Text="Agregar" OnClick="Button2_Click" />
-        <asp:Button ID="Button3" CssClass="btn btn-outline-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button3_Click"  />
-             
+                <asp:Button ID="Button2" CssClass="btn btn-outline-success col-sm-2" runat="server" Text="Agregar" OnClick="Button2_Click" />
+                <asp:Button ID="Button3" CssClass="btn btn-outline-danger col-sm-2" runat="server" Text="Cancelar" OnClick="Button3_Click" />
+
+            </div>
+           
             
        <asp:Table ID="Table1"
         CssClass="table table-bordered table-hover table-responsive-sm table-responsive-md text-center display"

@@ -11,6 +11,16 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
     WebService1.WebService1SoapClient servicio = new WebService1.WebService1SoapClient();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Nombre"] != null)
+        {
+            if (!Session["Puesto"].ToString().Equals("Administrador")) {
+                Button1.Visible = false;
+            }
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
         llenarTable();
     }
 
@@ -19,10 +29,17 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
         List<Empleado> lista = JsonConvert.DeserializeObject<List<Empleado>>(servicio.ConsultarTodos());
 
         Table1.Rows.Clear();
+        TableHeaderRow hr = new TableHeaderRow();
+        
+        if (Session["Puesto"].ToString().Equals("Administrador"))
+        {
+            TableHeaderCell h0 = new TableHeaderCell();
+            h0.Scope = TableHeaderScope.Column;
+            h0.Text = "Administrar";
+            hr.Cells.Add(h0);
+        }
 
-        TableHeaderCell h0 = new TableHeaderCell();
-        h0.Scope = TableHeaderScope.Column;
-        h0.Text = "Administrar";
+        
         TableHeaderCell h1 = new TableHeaderCell();
         h1.Scope = TableHeaderScope.Column;
         h1.Text = "ID";
@@ -45,8 +62,7 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
         h7.Scope = TableHeaderScope.Column;
         h7.Text = "Direccion";
 
-        TableHeaderRow hr = new TableHeaderRow();
-        hr.Cells.Add(h0);
+        
         hr.Cells.Add(h1);
         hr.Cells.Add(h2);
         hr.Cells.Add(h3);
@@ -62,20 +78,25 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
 
             for (int i = 0; i < lista.Count; i++)
             {
-                Button btn1 = new Button();
-                Button btn2 = new Button();
-                btn1.Text = "Upd";
-                btn2.Text = "Del";
-                btn1.CssClass = "btn btn-outline-info col-sm-6";
-                btn1.PostBackUrl = "FrmRegistrarLogin.aspx";
-                btn2.CssClass = "btn btn-outline-danger col-sm-6";
-                btn1.Click += new EventHandler(this.ActionUpd);
-                btn2.Click += new EventHandler(this.ActionDel);
+                TableRow tr = new TableRow();
+                
+                if (Session["Puesto"].ToString().Equals("Administrador"))
+                {
+                    Button btn1 = new Button();
+                    Button btn2 = new Button();
+                    btn1.Text = "Upd";
+                    btn2.Text = "Del";
+                    btn1.CssClass = "btn btn-outline-info col-sm-6";
+                    btn1.PostBackUrl = "FrmRegistrarLogin.aspx";
+                    btn2.CssClass = "btn btn-outline-danger col-sm-6";
+                    btn1.Click += new EventHandler(this.ActionUpd);
+                    btn2.Click += new EventHandler(this.ActionDel);
 
-                TableCell c0 = new TableCell();
-                c0.Controls.Add(btn1);
-                c0.Controls.Add(btn2);
-
+                    TableCell c0 = new TableCell();
+                    c0.Controls.Add(btn1);
+                    c0.Controls.Add(btn2);
+                    tr.Cells.Add(c0);
+                }
 
                 TableCell cId = new TableCell();
                 cId.Text = Convert.ToString(lista[i].Id);
@@ -95,8 +116,7 @@ public partial class FrmCatalogoEmpleados : System.Web.UI.Page
                 cDir.Text = lista[i].Direccion;
                 TableCell cCity = new TableCell();
 
-                TableRow tr = new TableRow();
-                tr.Cells.Add(c0);
+                
                 tr.Cells.Add(cId);
                 tr.Cells.Add(cNom);
                 tr.Cells.Add(cApe);

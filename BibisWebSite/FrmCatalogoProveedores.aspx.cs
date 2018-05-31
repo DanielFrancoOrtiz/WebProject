@@ -10,6 +10,13 @@ public partial class FrmCatalogoProveedores : System.Web.UI.Page
     DaoProveedor dao = new DaoProveedor();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Nombre"] != null)
+        {
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
         llenarTable();
     }
     public void llenarTable() {

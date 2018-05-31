@@ -9,6 +9,11 @@ public partial class DefaultEmpleados : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["Nombre"] != null)
+        {
+        }
+        else {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
     }
 }

@@ -11,6 +11,14 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
     DaoMensajeria dao = new DaoMensajeria();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Nombre"] != null)
+        {
+            Response.Write("<script>alert('Welcome!!" + Session["Nombre"].ToString() + "')</script>");
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
         if (Page.PreviousPage != null)
         {        
             if (!Label2.Visible)

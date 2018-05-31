@@ -10,8 +10,13 @@ public partial class FrmCatalogoMensajeria : System.Web.UI.Page
     DaoMensajeria dao = new DaoMensajeria();
     protected void Page_Load(object sender, EventArgs e)
     {
-        //GridView1.DataSource = dao.LeerTodoss();
-        //GridView1.DataBind();
+        if (Session["Nombre"] != null)
+        {
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
         llenarTable();
        
     }

@@ -10,6 +10,13 @@ public partial class FrmCatalogoClientes : System.Web.UI.Page
     DaoCliente dao = new DaoCliente();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Nombre"] != null)
+        {
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
         llenarTable();   
     }
     public void llenarTable() {
