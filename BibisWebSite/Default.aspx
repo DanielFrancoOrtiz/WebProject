@@ -13,7 +13,7 @@
         }
 
         body {
-     background: url(../imgs/fondologin2.0.jpg);
+     background: url(../imgs/fondologin.jpg);
          font-family: sans-serif Latha;
          font-size:18px;  
         }
