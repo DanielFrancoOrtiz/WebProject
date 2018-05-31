@@ -30,6 +30,22 @@
             #contenidoEncabezado {display:none;}
               #cuerpo {display:none;}
         }
+         p {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 
     </style>
     <title></title>
@@ -91,8 +107,9 @@
             </div>
             <div id="pie" class="text-center col-sm-12" style="background-color: rgb(255, 98, 160);">
               
-                  <img class="iconosPie" src="../imgs/Facebook2.png" style="width:4%" />
-                   <img class="iconosPie" src="../imgs/whatsappp2.png" style="width:5%" />
+               <p>
+                   Copyright © 2018  | Bibi's
+               </p>
                
             </div>
       
