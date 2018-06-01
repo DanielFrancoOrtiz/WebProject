@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 public partial class FrmLoginEn : System.Web.UI.Page
 {
     WebService1.WebService1SoapClient servicio = new WebService1.WebService1SoapClient();
+    //WebServiceAndres.WebService1SoapClient servicio = new WebServiceAndres.WebService1SoapClient();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["Nombre"] != null) {
