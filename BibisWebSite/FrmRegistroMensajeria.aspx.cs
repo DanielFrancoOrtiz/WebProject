@@ -13,7 +13,6 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
     {
         if (Session["Nombre"] != null)
         {
-            Response.Write("<script>alert('Welcome!!" + Session["Nombre"].ToString() + "')</script>");
         }
         else
         {

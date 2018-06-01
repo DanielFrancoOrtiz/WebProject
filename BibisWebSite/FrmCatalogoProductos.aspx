@@ -13,7 +13,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
     <asp:Button ID="Button1" CssClass="btn btn-outline-success col-sm-12" runat="server" Text="Agregar" OnClick="Button1_Click" />
-     <asp:Button ID="btnGenerarReporte" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte" OnClick="Button1_Click" />
+     <asp:Button ID="btnGenerarReporte" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte" OnClick="btnGenerarReporte_Click" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
     Catálogo de Productos
