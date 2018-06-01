@@ -121,7 +121,7 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
 
     protected void btnGenerarReporte_Click(object sender, EventArgs e)
     {
-        Response.Redirect("FrmReporteOrdenes.aspx");
+        Response.Redirect("FrmReportesProducto.aspx");
     }
 
     public string getID() {
