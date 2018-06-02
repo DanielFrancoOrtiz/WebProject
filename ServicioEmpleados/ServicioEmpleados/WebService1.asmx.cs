@@ -243,8 +243,8 @@ namespace ServicioEmpleados
         public bool Conectar()
         {
             string servidor = "localhost";
-            string usuario = "Franco";
-            string contrasenia = "root";
+            string usuario = "root";
+            string contrasenia = "12345";
             string puerto = "3306";
             string database = "bd_empleados_bibis";
 

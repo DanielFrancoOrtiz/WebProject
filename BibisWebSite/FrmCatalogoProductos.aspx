@@ -2,7 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minium-scale=1.0">
-        <style>
+     <script src="Styles/js/jquery-3.2.1.min.js"></script>
+    <script src="Styles/js/jspdf.debug.js"></script> 
+    <style>
 
             body {
     
@@ -14,11 +16,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
     <asp:Button ID="Button1" CssClass="btn btn-outline-success col-sm-12" runat="server" Text="Agregar" OnClick="Button1_Click" />
      <asp:Button ID="btnGenerarReporte" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte" OnClick="btnGenerarReporte_Click" />
+         <asp:Button ID="Button2" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte Ordenes" OnClick="btnGenerarReporteOrdenes_Click" />
+
+     
+      <input type="button" onclick="DescargarPDF('Reporte','ReporteASP')" value="Decargar Reporte"/>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
     Catálogo de Productos
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoPrincipal" Runat="Server">
+    <div class="reporte">
     <asp:Table ID="Table1"
         CssClass="table table-bordered table-hover table-responsive-sm table-responsive-md text-center"
         runat="server">
@@ -33,5 +40,17 @@
         </asp:TableHeaderRow>
 
     </asp:Table>
+        </div>
+    <script >
+        function DescargarPDF(ContenidoID, nombre) {
+            var pdf = new jsPDF('p', 'pt', 'letter');
+             
+            html = $('#' + ContenidoID).html();
+            specialElementHandlers = {};
+            margins = { top: 10, bottom: 20, left: 20, width: 522 };
+            pdf.fromHTML(html, margins.left, margins.top, { 'width': margins.width }, function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
+        }
+
+    </script>
 </asp:Content>
 

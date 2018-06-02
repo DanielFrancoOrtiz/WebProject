@@ -17,7 +17,9 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
         {
             Response.Redirect("FrmLoginEn.aspx");
         }
+       
         llenarTable();
+
     }
     public void llenarTable() {
         List<Producto> lista = dao.ConsultarTodos();
@@ -126,5 +128,10 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
 
     public string getID() {
         return Id;
+    }
+
+    protected void btnGenerarReporteOrdenes_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("FrmReporteOrdenes.aspx");
     }
 }
