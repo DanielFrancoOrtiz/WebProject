@@ -16,10 +16,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenuEspecifico" Runat="Server">
     <asp:Button ID="Button1" CssClass="btn btn-outline-success col-sm-12" runat="server" Text="Agregar" OnClick="Button1_Click" />
      <asp:Button ID="btnGenerarReporte" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte" OnClick="btnGenerarReporte_Click" />
-         <asp:Button ID="Button2" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte Ordenes" OnClick="btnGenerarReporteOrdenes_Click" />
-
+         <asp:Button ID="Button2" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Reporte_Ordenes" OnClick="btnGenerarReporteOrdenes_Click" />
+     <asp:Button ID="Button3" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Reporte_PreVentas" OnClick="btnGenerarReportePreventa_Click" />
      
-      <input type="button"   onclick="DescargarPDF('Reporte','ReporteASP')" value="Decargar Reporte"/>
+      <input type="button"   onclick="DescargarPDF('reporte','Reporte de Productos')" value="Decargar Reporte"/>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
     Catálogo de Productos
@@ -45,9 +45,9 @@
         function DescargarPDF(ContenidoID, nombre) {
             var pdf = new jsPDF('p', 'pt', 'letter');
              
-            html = $('#' + ContenidoID).html();
+            html = $('.' + ContenidoID).html();
             specialElementHandlers = {};
-            margins = { top: 10, bottom: 20, left: 20, width: 522 };
+            margins = { top: 10, bottom: 20, left: 20, width: 822 };
             pdf.fromHTML(html, margins.left, margins.top, { 'width': margins.width }, function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
         }
 
