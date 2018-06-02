@@ -132,6 +132,7 @@ public partial class FrmProducto : System.Web.UI.Page
     {
         Response.Redirect("FrmCatalogoProductos.aspx");
     }
+
     public Boolean validar()
     {
         Boolean valid = true;

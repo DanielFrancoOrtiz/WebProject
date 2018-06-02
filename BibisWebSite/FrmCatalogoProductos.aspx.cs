@@ -86,9 +86,9 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
                 TableCell cCant = new TableCell();
                 cCant.Text = Convert.ToString(lista[i].Cantidad);
                 TableCell cPC = new TableCell();
-                cPC.Text = Convert.ToString(lista[i].Precio_compra);
+                cPC.Text = "$"+ Convert.ToString(lista[i].Precio_compra);
                 TableCell cPV = new TableCell();
-                cPV.Text = Convert.ToString(lista[i].Precio_venta);
+                cPV.Text = "$"+ Convert.ToString(lista[i].Precio_venta);
 
                 TableRow tr = new TableRow();
                 tr.Cells.Add(c0);

@@ -25,6 +25,7 @@ public partial class FrmCatalogoCategorias : System.Web.UI.Page
         List<Categoria> lista = dao.ConsultarTodos();
 
         Table1.Rows.Clear();
+
         TableHeaderRow hr = new TableHeaderRow();
         TableHeaderCell h0 = new TableHeaderCell();
         h0.Scope = TableHeaderScope.Column;

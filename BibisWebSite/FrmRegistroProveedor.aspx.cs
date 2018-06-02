@@ -117,6 +117,8 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
                     }
                     else
                     {
+                      
+
                         XmlTextWriter xtw = new XmlTextWriter(fileXML, null);
                         xtw.WriteStartDocument();
                         xtw.WriteStartElement("Proveedores");

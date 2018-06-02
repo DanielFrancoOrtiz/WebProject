@@ -64,10 +64,10 @@ public class DaoCliente : IDAO<Cliente>
         try
         {
             Conexion con = new Conexion();
-            DataTable dtCategorias = con.ejecutarConsulta("SELECT * FROM clientes WHERE id = " + id);
-            if (dtCategorias != null && dtCategorias.Rows.Count > 0)
+            DataTable dtCliente = con.ejecutarConsulta("SELECT * FROM clientes WHERE id = " + id);
+            if (dtCliente != null && dtCliente.Rows.Count > 0)
             {
-                DataRow fila = dtCategorias.Rows[0];
+                DataRow fila = dtCliente.Rows[0];
                 obj = new Cliente(int.Parse(fila["id"].ToString()), fila["Nombre"].ToString(),
                     fila["Apellidos"].ToString(), fila["Email"].ToString(), fila["Telefono"].ToString(), fila["Direccion"].ToString(),
                     fila["Ciudad"].ToString(), fila["Codigo_postal"].ToString());

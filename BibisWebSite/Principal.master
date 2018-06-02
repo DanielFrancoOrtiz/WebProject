@@ -71,6 +71,7 @@
                             <li class="nav-item"><a class="nav-link" href="FrmVistaProductos.aspx">Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmInformacion.aspx">Informacion</a></li>
                             <li class="nav-item"><a class="nav-link" href="FrmContactanos.aspx">Contactanos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="FrmCarrito.aspx">Carrito</a></li>
                         </ul>
                    </div>
                    <div class="row col-sm-2">
