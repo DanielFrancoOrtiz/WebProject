@@ -18,11 +18,14 @@ create view empleadosv as
 select Nombre, Apellidos, Puesto, Email, Telefono, Direccion from
 empleados;
 
-
+use bd_empleados_bibis;
 insert into Empleados(Nombre, Apellidos, Usuario, Puesto, Email,Telefono, Direccion, Pass)
-				values('Empleado1', 'Apellidos 1', 'user1','Puesto',  'email.user1@bibid.com.mx',
+				values('Empleado2', 'Apellidos1', 'Usuario2','Empleado',  'email.user1@bibid.com.mx',
                 '4451211549','direccion', sha1('pass'));
 select * from empleados;
+
+delete from empleados where id = 4;
+
 
 
 
