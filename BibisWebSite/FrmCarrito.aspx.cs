@@ -52,7 +52,7 @@ public partial class FrmCarrito : System.Web.UI.Page
                 cantidadProductos++;
                 Button btn2 = new Button();
 
-                btn2.Text = "Del";
+                btn2.Text = "Eliminar";
                 btn2.CssClass = "btn btn-outline-danger col-sm-6";
                 btn2.Click += new EventHandler(this.ActionDel);
 

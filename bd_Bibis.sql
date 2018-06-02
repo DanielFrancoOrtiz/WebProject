@@ -44,7 +44,7 @@ constraint foreign key (id_Proveedor) references proveedores(id),
 constraint foreign key (id_Categoria) references categorias(id) 
 );
 
-
+select * from mensajeria;
 create table mensajeria(
 id					int 			primary key auto_increment,
 Nombre				varchar(50) 	not null,
@@ -114,6 +114,7 @@ nombreP		varchar(60) not null,
 precioV		double not null
 );
 
+select * from pre_venta;
 create table detalles_venta
 (
 id_Dventa int primary key auto_increment,

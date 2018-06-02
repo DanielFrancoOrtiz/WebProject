@@ -69,7 +69,15 @@ public partial class FrmProducto : System.Web.UI.Page
         }
 
     }
-
+    public void limpiar()
+    {
+        txtCantidad.Text = "";
+        txtModelo.Text = "";
+        txtNombre.Text = "";
+        txtPrecioC.Text = "";
+        txtPrecioV.Text ="";
+        
+    }
 
     protected void btnAceptar_Click(object sender, EventArgs e)
     {
@@ -100,10 +108,12 @@ public partial class FrmProducto : System.Web.UI.Page
                     {
 
                         Response.Write("<script>alert('Registro de producto exitoso!!!!')</script>");
+                        limpiar();
                     }
                     else
                     {
                         Response.Write("<script>alert('No se pudo llevar a cabo con el registro')</script>");
+                      
                     }
                 }
                 else
@@ -112,6 +122,7 @@ public partial class FrmProducto : System.Web.UI.Page
                     if (daoProducto.Actualizar(p) == 1)
                     {
                         Response.Write("<script>alert('Actualizacion exitosa!!'></script>");
+                        
                         Response.Redirect("FrmCatalogoProductos.aspx");
                     }
                     else

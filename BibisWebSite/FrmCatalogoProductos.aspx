@@ -19,7 +19,7 @@
          <asp:Button ID="Button2" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte Ordenes" OnClick="btnGenerarReporteOrdenes_Click" />
 
      
-      <input type="button" onclick="DescargarPDF('Reporte','ReporteASP')" value="Decargar Reporte"/>
+      <input type="button"   onclick="DescargarPDF('Reporte','ReporteASP')" value="Decargar Reporte"/>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">
     Catálogo de Productos

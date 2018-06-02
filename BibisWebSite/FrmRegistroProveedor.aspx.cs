@@ -52,6 +52,15 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
         ds.ReadXml(Server.MapPath("DatosProveedor.xml"));
     }
 
+    public void limpiar()
+    {
+        txtCiudad.Text = "";
+        txtDireccion.Text = "";
+        txtEmail.Text = "";
+        txtNombre.Text = "";
+        txtTelefono.Text = "";
+    }
+
     protected void Button1_Click(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -75,6 +84,7 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
                     if (dao.Insertar(p) == 1)
                     {
                         Response.Write("<script>alert('Registro de proveedor exitoso!!!!')</script>");
+                        limpiar();
                     }
                     else
                     {
@@ -138,6 +148,7 @@ public partial class FrmRegistoProveedor : System.Web.UI.Page
                     if (dao.Actualizar(p) == 1)
                     {
                         Response.Write("<script>alert('Actualizacion exitosa!!')</script>");
+                        limpiar();
                     }
                     else
                     {

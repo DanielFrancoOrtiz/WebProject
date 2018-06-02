@@ -11,13 +11,13 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
     DaoMensajeria dao = new DaoMensajeria();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["Nombre"] != null)
-        {
-        }
-        else
-        {
-            Response.Redirect("FrmLoginEn.aspx");
-        }
+        //if (Session["Nombre"] != null)
+        //{
+        //}
+        //else
+        //{
+        //    Response.Redirect("FrmLoginEn.aspx");
+        //}
         if (Page.PreviousPage != null)
         {        
             if (!Label2.Visible)
@@ -36,6 +36,7 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
 
     }
 
+   
     protected void Button1_Click(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -56,6 +57,7 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
                     if (dao.Insertar(m) == 1)
                     {
                         Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
+                        limpiar();
                     }
                     else
                     {
@@ -69,6 +71,7 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
                     if (dao.Actualizar(m) == 1)
                     {
                         Response.Write("<script>alert('Registro de mensajeria exitosa!!')</script>");
+                        limpiar();
                     }
                     else
                     {
@@ -86,6 +89,12 @@ public partial class FrmRegistroMensajeria : System.Web.UI.Page
         Response.Redirect("FrmCatalogoMensajeria.aspx");
     }
 
+    public void limpiar()
+    {
+        txtNombre.Text = "";
+        txtEmail.Text = "";
+        txtTelefono.Text = "";
+    }
     public Boolean validar() {
         txtTelefono.BorderColor = System.Drawing.Color.Gray;
         txtEmail.BorderColor = System.Drawing.Color.Gray;
