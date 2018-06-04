@@ -18,7 +18,8 @@
      <asp:Button ID="btnGenerarReporte" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Generar Reporte" OnClick="btnGenerarReporte_Click" />
          <asp:Button ID="Button2" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Reporte_Ordenes" OnClick="btnGenerarReporteOrdenes_Click" />
      <asp:Button ID="Button3" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Reporte_PreVentas" OnClick="btnGenerarReportePreventa_Click" />
-     
+          <asp:Button ID="Button4" CssClass="btn btn-outline-info col-sm-12" runat="server" Text="Ver Visitas" OnClick="btnVerVisitas_Click" />
+
       <input type="button"   onclick="DescargarPDF('reporte','Reporte de Productos')" value="Decargar Reporte"/>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="tituloContenido" Runat="Server">

@@ -139,4 +139,9 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
     {
         Response.Redirect("ReportesPreVenta.aspx");
     }
+
+    protected void btnVerVisitas_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("FrmGrafica2.aspx");
+    }
 }

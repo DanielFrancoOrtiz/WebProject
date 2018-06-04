@@ -5,6 +5,8 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minium-scale=1.0">
+
     <title></title>
     <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
     <asp:ContentPlaceHolder id="head" runat="server">
