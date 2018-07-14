@@ -10,14 +10,14 @@ public partial class FrmCatalogoProductos : System.Web.UI.Page
     DaoProducto dao = new DaoProducto();
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (Session["Nombre"] != null)
-        //{
-        //}
-        //else
-        //{
-        //    Response.Redirect("FrmLoginEn.aspx");
-        //}
-       
+        if (Session["Nombre"] != null)
+        {
+        }
+        else
+        {
+            Response.Redirect("FrmLoginEn.aspx");
+        }
+
         llenarTable();
 
     }

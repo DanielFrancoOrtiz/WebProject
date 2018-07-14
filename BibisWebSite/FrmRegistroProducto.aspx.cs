@@ -76,6 +76,7 @@ public partial class FrmProducto : System.Web.UI.Page
         txtNombre.Text = "";
         txtPrecioC.Text = "";
         txtPrecioV.Text ="";
+        txtDescripcion.InnerText="";
         
     }
 

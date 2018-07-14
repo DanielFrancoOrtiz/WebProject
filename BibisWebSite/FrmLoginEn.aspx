@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.master" AutoEventWireup="true" CodeFile="FrmLoginEn.aspx.cs" Inherits="FrmLoginEn" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.master" AutoEventWireup="true" CodeFile="FrmLoginEn.aspx.cs" Inherits="FrmLoginEn" EnableEventValidation="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link rel="stylesheet" href="Styles/estilosLogin.css">
 </asp:Content>
